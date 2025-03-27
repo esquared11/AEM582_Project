@@ -13,5 +13,21 @@ Outputs:
 # imports
 import astropy
 import sgp4
+from datetime import datetime
+#import matplotlib.pyplot as plt
+
+starttime = datetime.now()
 
 # main code
+
+
+
+
+
+
+
+
+
+# output run time
+endtime = datetime.now()
+print("Runtime is", endtime-starttime)
