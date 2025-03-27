@@ -20,8 +20,20 @@ starttime = datetime.now()
 
 # main code
 
-
-
+#TLE Read in - Justin
+def read_tle_from_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+            if len(lines) < 2:
+               raise ValueError("TLE data needs at least two lines.")
+            return [line.strip() for line in lines]
+    except FileNotFoundError:
+        print(f"Error: File not found: {file_path}")
+        return None
+    except Exception as e:
+         print(f"An error occurred: {e}")
+         return None
 
 
 
