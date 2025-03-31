@@ -16,6 +16,12 @@ import sgp4
 from datetime import datetime
 #import matplotlib.pyplot as plt
 
+import numpy
+from astropy import units as u
+from poliastro.bodies import Earth
+from poliastro.twobody import Orbit
+from poliastro.maneuver import Maneuver
+
 starttime = datetime.now()
 
 # main code
