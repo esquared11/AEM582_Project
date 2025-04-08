@@ -103,6 +103,7 @@ tstep = 1                           # seconds
 dV = 0                              # current delta V used
 dVlimit = 100                       # limit on delta V value
 scenario_start_time = 2460774       # julian date (currently April 8, 2025 at 0000z)
+mi = 0                              # initial mass
 t = list()                          # time since scenario start
 statelist = list()                  # list of spacecraft objects at each time step
 stoploop = False
@@ -110,13 +111,17 @@ stoploop = False
 # create while loop
 while stoploop != True:
 
-    # get spacecraft's current state
+    # get spacecraft's current state and ideal state
     if len(t) < 1:
         t.append(0)
         if case == 1:
             pass
             # this will be grabbing a specific TLE and fuel stats, something like curstate = blah
-            curstate = 'something'
+            #tle1 = read_tle_from_file("tles.filename.txt")[0]
+            #tle2 = read_tle_from_file("tles.filename.txt")[1]
+            #curstate = spacecraft(tle1, tle2, mi, "Hydrogen Peroxide", scenario_start_time, False)
+            #statelist.append(curstate)
+            curstate = "something"
         elif case == 2:
             pass
         elif case == 3:
@@ -127,12 +132,11 @@ while stoploop != True:
             pass
         elif case == 6:
             pass
+        idealstate = curstate
     else:
         t.append(t[-1] + 1)
         # propogate from latest state
         curstate = propogate(prevstate, tstep)
-
-    # get spacecraft's ideal state
 
     # test if difference of ideal vs current state is above tolerance
 
@@ -154,6 +158,10 @@ while stoploop != True:
         curstate = 'nothing'
     #if len(t) == 9000000:
     #    stoploop = True
+
+# plot outputs
+
+# export output data if necessary
 
 # exit main code
 
