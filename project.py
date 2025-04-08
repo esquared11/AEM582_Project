@@ -1,9 +1,9 @@
 """
 Title: AEM582 Space Systems Final Project Spring 2025
-Authors: Jessica Engel, Misael Alvarez, Justin Klein, Eli Elstein
+Authors: Justin Klein, Eli Elstein, Jessica Engel, Misael Alvarez
 
 Created: 03/26/25
-Last-Modified: 04/07/25
+Last-Modified: 04/08/25
 
 Inputs: TLE, mass of sc
 Outputs:
@@ -14,6 +14,7 @@ Outputs:
 import astropy
 from astropy import units as u
 import sgp4
+from sgp4.api import Satrec
 from datetime import datetime
 #import matplotlib.pyplot as plt
 import numpy
@@ -42,16 +43,35 @@ def read_tle_from_file(file_path):
          return None
 
 # propogate spacecraft
-def propogate(spacecraft):
-    pass
+def propogate(spacecraft, timestep):
+    # check if burn is detected
+    if spacecraft.burn == False:
+        # create sgp4 object with spacecraft state
+        sat = Satrec.twoline2rv(spacecraft.tle1, spacecraft.tle2)
+
+        # find julian date
+        jd = int(spacecraft.time + timestep) 
+        fr = spacecraft.time + timestep - jd
+
+        # calculate the spacecraft's position
+        e, r, v = sat.sgp4(jd, fr)
+
+        # generate new tle
+        #new_spacecraft = newtle(e, r, v)        dont actually need a function just do it here
+
+    elif spacecraft.burn == True:
+        pass # put propogation with maneuver in here
+
+    # end function and return new state
+    #return new_spacecraft
 
 # design maneuver
-""" for this I think it would be a good idea to propogate to the next
-apoapsis or periapsis (depending on how the deorbiting occurs) and
-either recircularize at apoapsis or do a hohmann transfer at periapsis
-and then circularize a half an orbit later. So basically only burn the
-most fuel efficient way """
 def genburn(spacecraft):
+    """ for this I think it would be a good idea to propogate to the next
+    apoapsis or periapsis (depending on how the deorbiting occurs) and
+    either recircularize at apoapsis or do a hohmann transfer at periapsis
+    and then circularize a half an orbit later. So basically only burn the
+    most fuel efficient way """
     pass
 
 """----------------------------------------------------------------------------------"""
@@ -59,15 +79,18 @@ def genburn(spacecraft):
 # classes
 # spacecraft
 class spacecraft:
-    def __init__(self, state, mass, fuel, burn):
-        self.state = state
+    def __init__(self, tle1, tle2, mass, fuel, time, burn):
+        self.tle1 = tle1
+        self.tle2 = tle2
         self.mass = mass
         self.fuel = fuel
+        self.time = time
         self.burn = burn
     def print(self):
-        print("state: ", self.state)
+        print("state:\n", self.tle1, "\n ", self.tle2)
         print("mass: ", self.mass)
         print("fuel: ", self.fuel)
+        print("time: ", self.time)
         print("burn?: ", self.burn)
 
 """----------------------------------------------------------------------------------"""
@@ -75,12 +98,13 @@ class spacecraft:
 # main code
 
 # initializations
-case = 1
-tstep = 1           # seconds
-dV = 0
-dVlimit = 100
-t = list()
-statelist = list()
+case = 1                            # integer 1-6
+tstep = 1                           # seconds
+dV = 0                              # current delta V used
+dVlimit = 100                       # limit on delta V value
+scenario_start_time = 2460774       # julian date (currently April 8, 2025 at 0000z)
+t = list()                          # time since scenario start
+statelist = list()                  # list of spacecraft objects at each time step
 stoploop = False
 
 # create while loop
@@ -106,7 +130,7 @@ while stoploop != True:
     else:
         t.append(t[-1] + 1)
         # propogate from latest state
-        curstate = propogate(prevstate)
+        curstate = propogate(prevstate, tstep)
 
     # get spacecraft's ideal state
 
