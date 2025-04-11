@@ -14,12 +14,12 @@ from poliastro.maneuver import Maneuver
 DECAY_THRESHOLD = 0.02                # Deviation threshold for station-keeping
 ISP = 300                             # Specific impulse in seconds
 G0 = 9.80665                          # Standard gravity [m/s²]
-INITIAL_PROPELLANT_KG = 50.0         # Starting propellant
-DRY_MASS_KG = 500.0                  # Dry mass of satellite
-REENTRY_ALTITUDE = 120 * u.km        # Reentry threshold
-BURN_INTERVAL = 12 * u.hour          # Min time between burns
-STEP = 1 * u.hour                    # Propagation step size
-MAX_DURATION = 5 * 365 * u.day       # Optional simulation duration cap
+INITIAL_PROPELLANT_KG = 50.0          # Starting propellant
+DRY_MASS_KG = 500.0                   # Dry mass of satellite
+REENTRY_ALTITUDE = 120 * u.km         # Reentry threshold
+BURN_INTERVAL = 12 * u.hour           # Min time between burns
+STEP = 1 * u.hour                     # Propagation step size
+MAX_DURATION = 5 * 365 * u.day        # Optional simulation duration cap
 
 # ---- Hardcoded TLEs ----
 TLES = [

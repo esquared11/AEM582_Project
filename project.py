@@ -13,57 +13,84 @@ Outputs:
 # imports
 import astropy
 from astropy import units as u
+from astropy.time import Time
 import sgp4
 from sgp4.api import Satrec
 from datetime import datetime
-#import matplotlib.pyplot as plt
-import numpy
+import matplotlib.pyplot as plt
+import numpy as np
 from poliastro.bodies import Earth
 from poliastro.twobody import Orbit
+from poliastro.ephem import Ephem
 from poliastro.maneuver import Maneuver
+from poliastro.plotting import OrbitPlotter
+from poliastro.twobody.propagation import CowellPropagator
+from poliastro.core.propagation import func_twobody
+from poliastro.core.perturbations import J2_perturbation, atmospheric_drag_exponential
+from poliastro.constants import rho0_earth, H0_earth
+import tletools
 
 starttime = datetime.now()
 
 """----------------------------------------------------------------------------------"""
 
 # functions
-# read in TLE - Justin
-# def read_tle_from_file(file_path):
-#     try:
-#         with open(file_path, 'r') as file:
-#             lines = file.readlines()
-#             if len(lines) < 2:
-#                raise ValueError("TLE data needs at least two lines.")
-#             return [line.strip() for line in lines]
-#     except FileNotFoundError:
-#         print(f"Error: File not found: {file_path}")
-#         return None
-#     except Exception as e:
-#          print(f"An error occurred: {e}")
-#          return None
+# read in tle
+def read_tle_from_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+            if len(lines) < 2:
+               raise ValueError("TLE data needs at least two lines.")
+            return [line.strip() for line in lines]
+    except FileNotFoundError:
+        print(f"Error: File not found: {file_path}")
+        return None
+    except Exception as e:
+         print(f"An error occurred: {e}")
+         return None
+    
+# initialize state using TLE
+def stateinit(spacecraft):
+    # create sgp4 object with tle
+    sat = Satrec.twoline2rv(spacecraft.tle1, spacecraft.tle2)
+
+    # find julian date
+    jd = sat.jdsatepoch
+    fr = sat.jdsatepochF
+    startep = Time((jd + fr), format="jd")
+
+    # calculate the spacecraft's position
+    e, r, v = sat.sgp4(jd, fr)
+    r = r * u.km
+    v = v * u.km / u.s
+    if e != 0:
+        print("Error in TLE")
+        return
+
+    # create orbit object
+    orb = Orbit.from_vectors(Earth, r, v, epoch=startep)
+
+    # create ephem
+    ephem = Ephem.from_orbit(orb, startep)
+
+    # end function
+    return ephem, orb
 
 # propogate spacecraft
-def propogate(spacecraft, timestep):
-    # check if burn is detected
-    if spacecraft.burn == False:
-        # create sgp4 object with spacecraft state
-        sat = Satrec.twoline2rv(spacecraft.tle1, spacecraft.tle2)
+def propogate(orb, timestep):
 
-        # find julian date
-        jd = int(spacecraft.time + timestep) 
-        fr = spacecraft.time + timestep - jd
+    # create propogation time
+    epoch = Time(orb.epoch + timestep/86400, format="jd")
 
-        # calculate the spacecraft's position
-        e, r, v = sat.sgp4(jd, fr)
+    # propogate orbit to next timestep
+    neworb = orb.propagate(epoch, method=CowellPropagator(f=j2func))
 
-        # generate new tle
-        #new_spacecraft = newtle(e, r, v)        dont actually need a function just do it here
+    # create ephem
+    ephem = Ephem.from_orbit(orb, epoch)
 
-    elif spacecraft.burn == True:
-        pass # put propogation with maneuver in here
-
-    # end function and return new state
-    #return new_spacecraft
+    # end function
+    return ephem, neworb
 
 # design maneuver
 def genburn(spacecraft):
@@ -73,6 +100,32 @@ def genburn(spacecraft):
     and then circularize a half an orbit later. So basically only burn the
     most fuel efficient way """
     pass
+
+# J2 pertubations function
+def j2func(t0, u_, k):
+    du_kep = func_twobody(t0, u_, k)
+    ax, ay, az = J2_perturbation(
+        t0, u_, k, J2=Earth.J2.value, R=Earth.R.to(u.km).value
+    )
+    du_ad = np.array([0, 0, 0, ax, ay, az])
+    return du_kep + du_ad
+
+# atmospheric drag function
+def dragfunc(t0, state, k):
+    du_kep = func_twobody(t0, state, k)
+    ax, ay, az = atmospheric_drag_exponential(
+        t0,
+        state,
+        k,
+        R=R,
+        C_D=C_D,
+        A_over_m=A_over_m,
+        H0=H0,
+        rho0=rho0,
+    )
+    du_ad = np.array([0, 0, 0, ax, ay, az])
+
+    return du_kep + du_ad
 
 """----------------------------------------------------------------------------------"""
 
@@ -87,7 +140,7 @@ class spacecraft:
         self.time = time
         self.burn = burn
     def print(self):
-        print("state:\n", self.tle1, "\n ", self.tle2)
+        print("state:\n", self.tle1, "\n", self.tle2)
         print("mass: ", self.mass)
         print("fuel: ", self.fuel)
         print("time: ", self.time)
@@ -99,14 +152,25 @@ class spacecraft:
 
 # initializations
 case = 1                            # integer 1-6
-tstep = 1                           # seconds
+tstep = 120                         # seconds
 dV = 0                              # current delta V used
 dVlimit = 100                       # limit on delta V value
 scenario_start_time = 2460774       # julian date (currently April 8, 2025 at 0000z)
 mi = 0                              # initial mass
 t = list()                          # time since scenario start
 statelist = list()                  # list of spacecraft objects at each time step
+alt = list()                        # list of spacecraft altitude at each time step
 stoploop = False
+
+R = Earth.R.to(u.km).value
+k = Earth.k.to(u.km**3 / u.s**2).value
+C_D = 2.2                           # coefficient of drag
+A_over_m = ((np.pi / 4.0) * (u.m**2) / (100 * u.kg)).to_value(
+    u.km**2 / u.kg
+)  # km^2/kg
+B = C_D * A_over_m
+rho0 = rho0_earth.to(u.kg / u.km**3).value  # kg/km^3
+H0 = H0_earth.to(u.km).value
 
 # create while loop
 while stoploop != True:
@@ -115,13 +179,14 @@ while stoploop != True:
     if len(t) < 1:
         t.append(0)
         if case == 1:
-            pass
-            # this will be grabbing a specific TLE and fuel stats, something like curstate = blah
-            #tle1 = read_tle_from_file("tles.filename.txt")[0]
-            #tle2 = read_tle_from_file("tles.filename.txt")[1]
-            #curstate = spacecraft(tle1, tle2, mi, "Hydrogen Peroxide", scenario_start_time, False)
-            #statelist.append(curstate)
-            curstate = "something"
+            tle1 = read_tle_from_file("tles\isstle.txt")[0]
+            tle2 = read_tle_from_file("tles\isstle.txt")[1]
+            sctle = spacecraft(tle1, tle2, mi, "Hydrogen Peroxide", scenario_start_time, False)
+            curephem, curstate = stateinit(sctle)
+            idealstate = curstate
+            statelist.append(curephem.rv())
+            curalt = (np.linalg.norm(curephem.rv()[0]) - R*u.km)/u.km
+            alt.append(curalt)
         elif case == 2:
             pass
         elif case == 3:
@@ -132,11 +197,15 @@ while stoploop != True:
             pass
         elif case == 6:
             pass
-        idealstate = curstate
     else:
-        t.append(t[-1] + 1)
-        # propogate from latest state
-        curstate = propogate(prevstate, tstep)
+        curephem, curstate = propogate(prevstate, tstep)
+        curalt = np.linalg.norm(curephem.rv()[0]) - R*u.km
+        if curalt >= 0:
+            alt.append(curalt/u.km)
+            t.append(t[-1] + tstep)
+            statelist.append(curephem.rv())
+        else:
+            break
 
     # test if difference of ideal vs current state is above tolerance
 
@@ -155,11 +224,13 @@ while stoploop != True:
         stoploop = True
     else:
         prevstate = curstate
-        curstate = 'nothing'
-    #if len(t) == 9000000:
-    #    stoploop = True
+    
+    if len(t) == 72000:
+        stoploop = True
 
 # plot outputs
+plt.figure()
+plt.plot(t, alt)
 
 # export output data if necessary
 
@@ -167,6 +238,7 @@ while stoploop != True:
 
 """----------------------------------------------------------------------------------"""
 
-# output run time
+# output run time and show plots
 endtime = datetime.now()
 print("Runtime is", endtime-starttime)
+plt.show()
