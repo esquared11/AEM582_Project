@@ -9,12 +9,12 @@ Moderator is creating core engine...
 Successfully set Planetary Source to use: DE405
 Successfully set Planetary Source to use: DE405
 Successfully set Planetary Source to use: DE405
-Setting nutation file to C:\PROGRA~1\GMAT\bin\..\data\planetary_coeff\NUTATION.DAT
-Setting leap seconds file to C:\PROGRA~1\GMAT\bin\..\data\time\tai-utc.dat
-2025-04-17 16:31:48 GMAT Moderator successfully created core engine
+Setting nutation file to C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\NUTATION.DAT
+Setting leap seconds file to C:\Users\eelstein\GMAT\bin\..\data\time\tai-utc.dat
+2025-04-17 16:59:18 GMAT Moderator successfully created core engine
 Successfully set Planetary Source to use: DE405
 Successfully set Planetary Source to use: DE405
-2025-04-17 16:31:49 GMAT GUI successfully launched.
+2025-04-17 16:59:18 GMAT GUI successfully launched.
 *** Error loading "..\plugins\libPythonInterface_py39": GMAT could not load the Python interface. Please check that bin/gmat_startup_file.txt contains the PLUGIN line for "libPythonInterface_py3X" corresponding to an installed Python 3.X distribution. See the User Guide for instructions, or disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
 *** Error loading "libMatlabInterface": GMAT could not load the MATLAB interface. Please check that MATLAB is installed and configured correctly.  See the User Guide for instructions, or disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
 *** Error loading "libFminconOptimizer": Either libMatlabInterface could not load or is disabled, or the MATLAB Optimization Toolbox is not available.  Disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
@@ -23,14 +23,81 @@ Interpreting scripts from the file.
 ***** file: C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\test.script
 Successfully set Planetary Source to use: DE405
 Successfully set Planetary Source to use: DE405
-1: C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\test.script: **** ERROR **** Interpreter Exception: The "function" keyword is not allowd in the main script in line:
-   " 100: function TargetLEOStationKeeping(desiredRMAG,desiredECC)"
+Successfully interpreted the script
+Running mission...
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Kernel C:/Users/eelstein/GMAT/bin/../data/planetary_ephem/spk/DE405AllPlanets.bsp has been loaded.
+Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\SPICEPlanetaryConstantsKernel.tpc has been loaded.
+Kernel C:\Users\eelstein\GMAT\bin\..\data\time\SPICELeapSecondKernel.tls has been loaded.
+Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\SPICEEarthPredictedKernel.bpc has been loaded.
+Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\SPICEEarthCurrentKernel.bpc has been loaded.
+Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\earth_latest_high_prec.bpc has been loaded.
+Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\SPICELunaCurrentKernel.bpc has been loaded.
+Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\SPICELunaFrameKernel.tf has been loaded.
+*** The output file 'anEphemerisFile.oem' will be written as 'C:\Users\eelstein\GMAT\bin\..\output\anEphemerisFile.oem'
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 2 variables; 2 goals
+   Variables:  TCM1.Element1, TCM2.Element1
+   Goals:  LEOsat.RMAG, LEOsat.Earth.ECC
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 6737  Achieved: 6736.61733768  Variance: 0.382662323401
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 0.000426576170253  Variance: -0.000376576170253
 
+   Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
+   Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
+
+DC Iteration 2; Nominal Pass
+   Variables:  TCM1.Element1 = 0.00211082901467, TCM2.Element1 = 0.00158382957334
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 6737  Achieved: 6737.00001255  Variance: -1.25473279695e-05
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 4.99491305156e-05  Variance: 5.08694844154e-08
+
+
+*** Targeting Completed in 2 iterations.
+*** The Targeter converged!
+Final Variable values:
+   TCM1.Element1 = 0.00211082901467
+   TCM2.Element1 = 0.00158382957334
+
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 2 variables; 2 goals
+   Variables:  TCM1.Element1, TCM2.Element1
+   Goals:  LEOsat.RMAG, LEOsat.Earth.ECC
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 6737  Achieved: 6737.65221402  Variance: -0.652214015608
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 0.00104738603262  Variance: -0.000997386032618
+
+   Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
+   Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
+
+DC Iteration 2; Nominal Pass
+   Variables:  TCM1.Element1 = 0.00181286823985, TCM2.Element1 = 0.00364655449198
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 6737  Achieved: 6737.00027086  Variance: -0.000270859598459
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 4.95885611417e-05  Variance: 4.11438858257e-07
+
+
+*** Targeting Completed in 2 iterations.
+*** The Targeter converged!
+Final Variable values:
+   TCM1.Element1 = 0.00181286823985
+   TCM2.Element1 = 0.00364655449198
+
+
+Mission run completed.
+===> Total Run Time: 29.501 seconds
 
 ========================================
-Errors were found in the script named "C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\test.script".
-Please fix all errors listed in message window.
-Successfully set Planetary Source to use: DE405
-Successfully set Planetary Source to use: DE405
-2025-04-17 16:32:29 Failed to build the script
-   C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\test.script
+Moderator is deleting core engine...
+2025-04-17 17:02:16 GMAT GUI exiting.
