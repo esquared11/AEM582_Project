@@ -19,15 +19,15 @@ from sgp4.api import Satrec
 from datetime import datetime
 import matplotlib.pyplot as plt
 import numpy as np
-from poliastro.bodies import Earth
-from poliastro.twobody import Orbit
-from poliastro.ephem import Ephem
-from poliastro.maneuver import Maneuver
-from poliastro.plotting import OrbitPlotter
-from poliastro.twobody.propagation import CowellPropagator
-from poliastro.core.propagation import func_twobody
-from poliastro.core.perturbations import J2_perturbation, atmospheric_drag_exponential
-from poliastro.constants import rho0_earth, H0_earth
+from hapsira.bodies import Earth
+from hapsira.twobody import Orbit
+from hapsira.ephem import Ephem
+from hapsira.maneuver import Maneuver
+from hapsira.plotting import OrbitPlotter
+from hapsira.twobody.propagation import CowellPropagator
+from hapsira.core.propagation import func_twobody
+from hapsira.core.perturbations import J2_perturbation, atmospheric_drag_exponential
+from hapsira.constants import rho0_earth, H0_earth
 import tletools
 
 starttime = datetime.now()
@@ -179,9 +179,8 @@ while stoploop != True:
     if len(t) < 1:
         t.append(0)
         if case == 1:
-            tle1 = read_tle_from_file("tles\isstle.txt")[0]
-            tle2 = read_tle_from_file("tles\isstle.txt")[1]
-            sctle = spacecraft(tle1, tle2, mi, "Hydrogen Peroxide", scenario_start_time, False)
+            tle = read_tle_from_file("tles\isstle.txt")
+            sctle = spacecraft(tle[0], tle[1], mi, "Hydrogen Peroxide", scenario_start_time, False)
             curephem, curstate = stateinit(sctle)
             idealstate = curstate
             statelist.append(curephem.rv())
@@ -225,7 +224,7 @@ while stoploop != True:
     else:
         prevstate = curstate
     
-    if len(t) == 700:
+    if len(t) == 1500:
         stoploop = True
 
 # plot outputs

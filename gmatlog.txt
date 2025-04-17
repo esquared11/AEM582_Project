@@ -1,0 +1,36 @@
+GMAT Build Date: Jan 10 2023 17:58:52
+
+GMAT Log file set to C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\gmatlog.txt
+Moderator is updating data files...
+Moderator is creating core engine...
+*** Library "..\plugins\libPythonInterface_py39" did not open.
+*** Library "..\plugins\libMatlabInterface" did not open.
+*** Library "..\plugins\libFminconOptimizer" did not open.
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+Setting nutation file to C:\PROGRA~1\GMAT\bin\..\data\planetary_coeff\NUTATION.DAT
+Setting leap seconds file to C:\PROGRA~1\GMAT\bin\..\data\time\tai-utc.dat
+2025-04-17 16:31:48 GMAT Moderator successfully created core engine
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+2025-04-17 16:31:49 GMAT GUI successfully launched.
+*** Error loading "..\plugins\libPythonInterface_py39": GMAT could not load the Python interface. Please check that bin/gmat_startup_file.txt contains the PLUGIN line for "libPythonInterface_py3X" corresponding to an installed Python 3.X distribution. See the User Guide for instructions, or disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
+*** Error loading "libMatlabInterface": GMAT could not load the MATLAB interface. Please check that MATLAB is installed and configured correctly.  See the User Guide for instructions, or disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
+*** Error loading "libFminconOptimizer": Either libMatlabInterface could not load or is disabled, or the MATLAB Optimization Toolbox is not available.  Disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
+
+Interpreting scripts from the file.
+***** file: C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\test.script
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+1: C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\test.script: **** ERROR **** Interpreter Exception: The "function" keyword is not allowd in the main script in line:
+   " 100: function TargetLEOStationKeeping(desiredRMAG,desiredECC)"
+
+
+========================================
+Errors were found in the script named "C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\test.script".
+Please fix all errors listed in message window.
+Successfully set Planetary Source to use: DE405
+Successfully set Planetary Source to use: DE405
+2025-04-17 16:32:29 Failed to build the script
+   C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\test.script

@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% main code
+Create Spacecraft LEOsat
+LEOsat.DisplayStateType = Keplerian
+LEOsat.SMA = 6733.989999999996
+LEOsat.ECC = 0.0004329999999984123
+LEOsat.INC = 34.98399999999998
+LEOsat.RAAN = 274.742
+LEOsat.AOP = 287.8049999999732
+LEOsat.TA = 294.0690000000269
+
+Create ForceModel LEOprop_ForceModel
+LEOprop_ForceModel.CentralBody = Earth
+LEOprop_ForceModel.PrimaryBodies = {Earth}
+LEOprop_ForceModel.PointMasses = {Luna, Sun}
+LEOprop_ForceModel.SRP = On
+LEOprop_ForceModel.GravityField.Earth.Degree = 4
+LEOprop_ForceModel.GravityField.Earth.Order = 4
+LEOprop_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof'
+LEOprop_ForceModel.Drag.AtmosphereModel = JacchiaRoberts
+LEOprop_ForceModel.Drag.F107 = 150
+LEOprop_ForceModel.Drag.F107A = 150
+
+Create Propagator LEOprop
+GMAT LEOprop.FM = LEOprop_ForceModel
+
+Create ImpulsiveBurn TCM1
+Create ImpulsiveBurn TCM2
+
+Create DifferentialCorrector DC
+
+Create OrbitView DefaultOrbitView
+DefaultOrbitView.Add = {LEOsat, Earth}
+
+Create XYPlot XYPlot1
+GMAT XYPlot1.XVariable = LEOsat.A1ModJulian
+GMAT XYPlot1.YVariables = {LEOsat.Earth.Altitude}
+
+Create GroundTrackPlot GroundTrackPlot1
+GroundTrackPlot1.Add = {LEOsat}
+
+Create ReportFile rf
+
+Create ReportFile rf2
+rf2.Add = {LEOsat.UTCModJulian, LEOsat.Earth.Altitude, ...
+LEOsat.Earth.RMAG, LEOsat.Earth.ECC}
+
+Create EphemerisFile anEphemerisFile
+GMAT anEphemerisFile.Spacecraft = LEOsat
+
+Create GmatFunction TargetLEOStationKeeping
+TargetLEOStationKeeping.FunctionPath = ...
+'C:\Users\rqureshi\Desktop\TargetLEOStationKeeping.gmf' 
+
+Create Variable desiredRMAG desiredECC X Y Z
+
+BeginMissionSequence
+
+desiredRMAG = 6737
+desiredECC = 0.00005
+
+% Declare LEOsat, Subscribers and other objects as Global:
+Global LEOsat
+Global DC TCM1 TCM2 LEOprop_ForceModel
+Global DefaultOrbitView XYPlot1 GroundTrackPlot1
+Global rf rf2 anEphemerisFile
+
+While 'While ElapsedDays < 10' LEOsat.ElapsedDays < 10.0
+
+Propagate 'Prop One Step' LEOprop(LEOsat)
+	
+If 'If Alt < Threshold' LEOsat.Earth.Altitude < 342
+
+Propagate 'Prop To Periapsis' LEOprop(LEOsat) {LEOsat.Periapsis}
+
+% Call function to implement SK. Pass local variables as input:
+TargetLEOStationKeeping(desiredRMAG,desiredECC)
+
+EndIf
+	
+EndWhile
+
+Report rf LEOsat.UTCGregorian LEOsat.UTCModJulian LEOsat.X ...
+LEOsat.Y LEOsat.Z LEOsat.Earth.Altitude LEOsat.Earth.ECC
+
+
+
+
+
+
+%%%%%%%%%%% Function begins below:
+
+function TargetLEOStationKeeping(desiredRMAG,desiredECC)
+  
+BeginMissionSequence
+
+Global LEOsat
+Global DC TCM1 TCM2 LEOprop_ForceModel
+Global DefaultOrbitView XYPlot1 GroundTrackPlot1
+Global rf rf2 anEphemerisFile
+  
+Target 'Raise Orbit' DC {SolveMode = Solve, ExitMode = DiscardAndContinue}
+	Vary 'Vary TCM1.V' DC(TCM1.Element1 = 0.002, {Perturbation = 0.0001, ...
+	Lower = -9.999999e300, Upper = 9.999999e300, MaxStep = 0.05})
+	Maneuver 'Apply TCM1' TCM1(LEOsat);
+	Propagate 'Prop to Apoapsis' LEOprop(LEOsat) {LEOsat.Apoapsis}
+	Achieve 'Achieve RMAG' DC(LEOsat.RMAG = desiredRMAG, {Tolerance = 0.1})
+	Vary 'Vary TCM2.V' DC(TCM2.Element1 = 1e-005, {Perturbation = 0.00005, ...
+	Lower = -9.999999e300, Upper = 9.999999e300, MaxStep = 0.05})
+	Maneuver 'Apply TCM2' TCM2(LEOsat);
+	Achieve 'Achieve ECC' DC(LEOsat.Earth.ECC = desiredECC)
+EndTarget
