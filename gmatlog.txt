@@ -11,10 +11,10 @@ Successfully set Planetary Source to use: DE405
 Successfully set Planetary Source to use: DE405
 Setting nutation file to C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\NUTATION.DAT
 Setting leap seconds file to C:\Users\eelstein\GMAT\bin\..\data\time\tai-utc.dat
-2025-04-17 16:59:18 GMAT Moderator successfully created core engine
+2025-04-18 14:53:32 GMAT Moderator successfully created core engine
 Successfully set Planetary Source to use: DE405
 Successfully set Planetary Source to use: DE405
-2025-04-17 16:59:18 GMAT GUI successfully launched.
+2025-04-18 14:53:33 GMAT GUI successfully launched.
 *** Error loading "..\plugins\libPythonInterface_py39": GMAT could not load the Python interface. Please check that bin/gmat_startup_file.txt contains the PLUGIN line for "libPythonInterface_py3X" corresponding to an installed Python 3.X distribution. See the User Guide for instructions, or disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
 *** Error loading "libMatlabInterface": GMAT could not load the MATLAB interface. Please check that MATLAB is installed and configured correctly.  See the User Guide for instructions, or disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
 *** Error loading "libFminconOptimizer": Either libMatlabInterface could not load or is disabled, or the MATLAB Optimization Toolbox is not available.  Disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
@@ -36,6 +36,8 @@ Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\earth_latest_high_prec
 Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\SPICELunaCurrentKernel.bpc has been loaded.
 Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\SPICELunaFrameKernel.tf has been loaded.
 *** The output file 'anEphemerisFile.oem' will be written as 'C:\Users\eelstein\GMAT\bin\..\output\anEphemerisFile.oem'
+*** WARNING *** 21 Jan 2000 11:41:00.682: 'DefaultOrbitView' exceed the maximum data points, now showing 20000 most recent data points.
+*** WARNING *** 21 Jan 2000 11:41:00.682: 'GroundTrackPlot1' exceed the maximum data points, now showing 20000 most recent data points.
 ********************************************************
 *** Performing Differential Correction (using "DC")
 *** 2 variables; 2 goals
@@ -46,24 +48,33 @@ Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\SPICELunaFrameKernel.t
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 6737  Achieved: 6736.61733768  Variance: 0.382662323401
-      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 0.000426576170253  Variance: -0.000376576170253
+      LEOsat.RMAG  Desired: 6785  Achieved: 6792.06322427  Variance: -7.06322426716
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 0.0011577777715  Variance: -0.0011077777715
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 0.00211082901467, TCM2.Element1 = 0.00158382957334
+   Variables:  TCM1.Element1 = -6.83607727749e-05, TCM2.Element1 = 0.00116112937266
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 6737  Achieved: 6737.00001255  Variance: -1.25473279695e-05
-      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 4.99491305156e-05  Variance: 5.08694844154e-08
+      LEOsat.RMAG  Desired: 6785  Achieved: 6785.19655903  Variance: -0.196559031484
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 5.9166985383e-05  Variance: -9.16698538296e-06
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 3.16392272251e-05)
+   Completed iteration 2, pert 2 (TCM2.Element1 = 0.00121112937266)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = -0.000129877693283, TCM2.Element1 = 0.00101204786737
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 6785  Achieved: 6785.00089149  Variance: -0.000891487856279
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 5.00656880146e-05  Variance: -6.56880145886e-08
 
 
-*** Targeting Completed in 2 iterations.
+*** Targeting Completed in 3 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 0.00211082901467
-   TCM2.Element1 = 0.00158382957334
+   TCM1.Element1 = -0.000129877693283
+   TCM2.Element1 = 0.00101204786737
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -75,29 +86,29 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 6737  Achieved: 6737.65221402  Variance: -0.652214015608
-      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 0.00104738603262  Variance: -0.000997386032618
+      LEOsat.RMAG  Desired: 6785  Achieved: 6786.41658895  Variance: -1.41658895318
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 0.00132138949793  Variance: -0.00127138949793
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 0.00181286823985, TCM2.Element1 = 0.00364655449198
+   Variables:  TCM1.Element1 = 0.00159285180873, TCM2.Element1 = 0.00421805329104
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 6737  Achieved: 6737.00027086  Variance: -0.000270859598459
-      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 4.95885611417e-05  Variance: 4.11438858257e-07
+      LEOsat.RMAG  Desired: 6785  Achieved: 6785.01003078  Variance: -0.0100307846124
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 2.05363205272e-05  Variance: 2.94636794728e-05
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 0.00181286823985
-   TCM2.Element1 = 0.00364655449198
+   TCM1.Element1 = 0.00159285180873
+   TCM2.Element1 = 0.00421805329104
 
 
 Mission run completed.
-===> Total Run Time: 29.501 seconds
+===> Total Run Time: 96.874 seconds
 
 ========================================
 Moderator is deleting core engine...
-2025-04-17 17:02:16 GMAT GUI exiting.
+2025-04-18 14:56:37 GMAT GUI exiting.

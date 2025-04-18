@@ -63,7 +63,7 @@ Create Variable desiredRMAG desiredECC X Y Z
 
 BeginMissionSequence
 
-desiredRMAG = 6785
+desiredRMAG = 6790
 desiredECC = 0.00005
 
 % Declare LEOsat, Subscribers and other objects as Global:
