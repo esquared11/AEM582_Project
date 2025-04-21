@@ -16,6 +16,7 @@ from datetime import datetime
 from sgp4.api import Satrec
 import numpy as np
 from matplotlib import pyplot as plt
+from scipy.signal import find_peaks
 
 # functions
 # read in tle
@@ -66,8 +67,8 @@ data[13] = "LEOsat.Z = " + str(state[0][2]) + "\n"
 data[14] = "LEOsat.VX = " + str(state[1][0]) + "\n"
 data[15] = "LEOsat.VY = " + str(state[1][1]) + "\n"
 data[16] = "LEOsat.VZ = " + str(state[1][2]) + "\n"
-data[65] = "desiredRMAG = " + str(desiredrmag) + "\n"
-data[78] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
+data[68] = "desiredRMAG = " + str(desiredrmag) + "\n"
+data[83] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
 
 with open("test.script", 'w') as gmatfile:
     gmatfile.writelines(data)
@@ -98,22 +99,34 @@ timelist = list()
 altlist = list()
 rmaglist = list()
 ecclist = list()
+deltav = float()
 for i, line in enumerate(file):
     if i == 0:
         pass
     elif i == 1:
         newline = line.split()
         startday = float(newline[0])
+        prevdv = abs(float(newline[4])) + abs(float(newline[5]))
     else:
         newline = line.split()
         timelist.append(float(newline[0]) - startday)
         altlist.append(float(newline[1]))
         rmaglist.append(float(newline[2]))
         ecclist.append(float(newline[3]))
+        curdv = abs(float(newline[4])) + abs(float(newline[5]))
+        if curdv != prevdv:
+            deltav += curdv
+            prevdv = curdv
+
+# thin altitude data into periapsis and apoapsis
+altnp = np.array(altlist)
+timenp = np.array(timelist)
+peaks, _ = find_peaks(altlist)
 
 # plot data
 plt.figure(1)
 plt.plot(timelist, altlist)
+plt.plot(timenp[peaks], altnp[peaks], 'ro')
 plt.xlabel("Time (Days)")
 plt.ylabel("Altitude (km)")
 plt.figure(2)
@@ -121,6 +134,8 @@ plt.plot(timelist, ecclist)
 plt.xlabel("Time (Days)")
 plt.ylabel("Eccentricity")
 plt.show()
+
+print("Total Delta V:", deltav*1000, "m/s")
 
 file.close()
 

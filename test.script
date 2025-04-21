@@ -46,11 +46,13 @@ GMAT XYPlot1.YVariables = {LEOsat.Earth.Altitude}
 Create GroundTrackPlot GroundTrackPlot1
 GroundTrackPlot1.Add = {LEOsat}
 
+Create Variable deltav
+
 Create ReportFile rf
 
 Create ReportFile rf2
 rf2.Add = {LEOsat.UTCModJulian, LEOsat.Earth.Altitude, ...
-LEOsat.Earth.RMAG, LEOsat.Earth.ECC}
+LEOsat.Earth.RMAG, LEOsat.Earth.ECC, TCM1.Element1, TCM2.Element1, deltav}
 
 Create EphemerisFile anEphemerisFile
 GMAT anEphemerisFile.Spacecraft = LEOsat
@@ -60,19 +62,22 @@ TargetLEOStationKeeping.FunctionPath = ...
 'C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\TargetLEOStationKeeping.gmf' 
 
 Create Variable desiredRMAG desiredECC X Y Z
+Create Variable totaldv
 
 BeginMissionSequence
 
 desiredRMAG = 6785
 desiredECC = 0.00005
+totaldv = 0.02
 
 % Declare LEOsat, Subscribers and other objects as Global:
 Global LEOsat
 Global DC TCM1 TCM2 LEOprop_ForceModel
 Global DefaultOrbitView XYPlot1 GroundTrackPlot1
 Global rf rf2 anEphemerisFile
+Global deltav
 
-While 'While ElapsedDays < 30' LEOsat.ElapsedDays < 30.0
+While 'While deltav < totaldv' deltav < totaldv
 
 Propagate 'Prop One Step' LEOprop(LEOsat)
 	

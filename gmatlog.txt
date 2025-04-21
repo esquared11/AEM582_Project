@@ -11,10 +11,10 @@ Successfully set Planetary Source to use: DE405
 Successfully set Planetary Source to use: DE405
 Setting nutation file to C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\NUTATION.DAT
 Setting leap seconds file to C:\Users\eelstein\GMAT\bin\..\data\time\tai-utc.dat
-2025-04-18 14:53:32 GMAT Moderator successfully created core engine
+2025-04-21 16:41:30 GMAT Moderator successfully created core engine
 Successfully set Planetary Source to use: DE405
 Successfully set Planetary Source to use: DE405
-2025-04-18 14:53:33 GMAT GUI successfully launched.
+2025-04-21 16:41:30 GMAT GUI successfully launched.
 *** Error loading "..\plugins\libPythonInterface_py39": GMAT could not load the Python interface. Please check that bin/gmat_startup_file.txt contains the PLUGIN line for "libPythonInterface_py3X" corresponding to an installed Python 3.X distribution. See the User Guide for instructions, or disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
 *** Error loading "libMatlabInterface": GMAT could not load the MATLAB interface. Please check that MATLAB is installed and configured correctly.  See the User Guide for instructions, or disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
 *** Error loading "libFminconOptimizer": Either libMatlabInterface could not load or is disabled, or the MATLAB Optimization Toolbox is not available.  Disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
@@ -105,10 +105,41 @@ Final Variable values:
    TCM1.Element1 = 0.00159285180873
    TCM2.Element1 = 0.00421805329104
 
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 2 variables; 2 goals
+   Variables:  TCM1.Element1, TCM2.Element1
+   Goals:  LEOsat.RMAG, LEOsat.Earth.ECC
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 6785  Achieved: 6793.40042199  Variance: -8.40042199381
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 0.000392215193556  Variance: -0.000342215193556
 
-Mission run completed.
-===> Total Run Time: 96.874 seconds
+   Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
+   Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
-========================================
-Moderator is deleting core engine...
-2025-04-18 14:56:37 GMAT GUI exiting.
+DC Iteration 2; Nominal Pass
+   Variables:  TCM1.Element1 = -0.00046321928153, TCM2.Element1 = -0.00148855103291
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 6785  Achieved: 6785.20440233  Variance: -0.204402331588
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 9.45800466455e-05  Variance: -4.45800466455e-05
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = -0.00036321928153)
+   Completed iteration 2, pert 2 (TCM2.Element1 = -0.00143855103291)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = -0.000526780684801, TCM2.Element1 = -0.00137547241794
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 6785  Achieved: 6785.00072166  Variance: -0.000721659162991
+      LEOsat.Earth.ECC  Desired: 5e-05  Achieved: 5.03939945934e-05  Variance: -3.93994593405e-07
+
+
+*** Targeting Completed in 3 iterations.
+*** The Targeter converged!
+Final Variable values:
+   TCM1.Element1 = -0.000526780684801
+   TCM2.Element1 = -0.00137547241794
+
