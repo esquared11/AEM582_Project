@@ -68,7 +68,7 @@ data[14] = "LEOsat.VX = " + str(state[1][0]) + "\n"
 data[15] = "LEOsat.VY = " + str(state[1][1]) + "\n"
 data[16] = "LEOsat.VZ = " + str(state[1][2]) + "\n"
 data[68] = "desiredRMAG = " + str(desiredrmag) + "\n"
-data[83] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
+data[85] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
 
 with open("test.script", 'w') as gmatfile:
     gmatfile.writelines(data)
@@ -84,11 +84,6 @@ test = r' '.join(args)
 
 os.system(test)
 
-# wait for gmat completion and then exit out of gmat
-
-
-
-
 
 # open output files
 filename = "C:\\Users\\eelstein\\GMAT\\output\\rf2.txt"
@@ -100,6 +95,9 @@ altlist = list()
 rmaglist = list()
 ecclist = list()
 deltav = float()
+inclist = list()
+curdv = 0
+prevdv = 0
 for i, line in enumerate(file):
     if i == 0:
         pass
@@ -117,6 +115,7 @@ for i, line in enumerate(file):
         if curdv != prevdv:
             deltav += curdv
             prevdv = curdv
+        inclist.append(float(newline[7]))
 
 # thin altitude data into periapsis and apoapsis
 altnp = np.array(altlist)
@@ -133,7 +132,10 @@ plt.figure(2)
 plt.plot(timelist, ecclist)
 plt.xlabel("Time (Days)")
 plt.ylabel("Eccentricity")
-plt.show()
+plt.figure(3)
+plt.plot(timelist, inclist)
+plt.xlabel("Time (Days)")
+plt.ylabel("Inclination (Deg)")
 
 print("Total Delta V:", deltav*1000, "m/s")
 
@@ -142,3 +144,5 @@ file.close()
 # end script
 endtime = datetime.now()
 print("Run Time: ", endtime-starttime)
+
+plt.show()

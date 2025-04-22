@@ -52,7 +52,7 @@ Create ReportFile rf
 
 Create ReportFile rf2
 rf2.Add = {LEOsat.UTCModJulian, LEOsat.Earth.Altitude, ...
-LEOsat.Earth.RMAG, LEOsat.Earth.ECC, TCM1.Element1, TCM2.Element1, deltav}
+LEOsat.Earth.RMAG, LEOsat.Earth.ECC, TCM1.Element1, TCM2.Element1, deltav, LEOsat.INC}
 
 Create EphemerisFile anEphemerisFile
 GMAT anEphemerisFile.Spacecraft = LEOsat
@@ -77,7 +77,9 @@ Global DefaultOrbitView XYPlot1 GroundTrackPlot1
 Global rf rf2 anEphemerisFile
 Global deltav
 
-While 'While deltav < totaldv' deltav < totaldv
+deltav = 0
+
+While deltav < totaldv
 
 Propagate 'Prop One Step' LEOprop(LEOsat)
 	
@@ -87,6 +89,8 @@ Propagate 'Prop To Periapsis' LEOprop(LEOsat) {LEOsat.Periapsis}
 
 % Call function to implement SK. Pass local variables as input:
 TargetLEOStationKeeping(desiredRMAG,desiredECC)
+
+deltav = deltav + abs(TCM1.Element1) + abs(TCM2.Element1)
 
 EndIf
 	
