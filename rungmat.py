@@ -17,6 +17,7 @@ from sgp4.api import Satrec
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.signal import find_peaks
+from scipy.signal import argrelextrema
 
 # functions
 # read in tle
@@ -67,8 +68,8 @@ data[13] = "LEOsat.Z = " + str(state[0][2]) + "\n"
 data[14] = "LEOsat.VX = " + str(state[1][0]) + "\n"
 data[15] = "LEOsat.VY = " + str(state[1][1]) + "\n"
 data[16] = "LEOsat.VZ = " + str(state[1][2]) + "\n"
-data[68] = "desiredRMAG = " + str(desiredrmag) + "\n"
-data[85] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
+data[70] = "desiredRMAG = " + str(desiredrmag) + "\n"
+data[87] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
 
 with open("test.script", 'w') as gmatfile:
     gmatfile.writelines(data)
@@ -111,7 +112,7 @@ for i, line in enumerate(file):
         altlist.append(float(newline[1]))
         rmaglist.append(float(newline[2]))
         ecclist.append(float(newline[3]))
-        curdv = abs(float(newline[4])) + abs(float(newline[5]))
+        curdv = abs(float(newline[4])) + abs(float(newline[5])) + abs(float(newline[8]))
         if curdv != prevdv:
             deltav += curdv
             prevdv = curdv
@@ -121,23 +122,32 @@ for i, line in enumerate(file):
 altnp = np.array(altlist)
 timenp = np.array(timelist)
 peaks, _ = find_peaks(altlist)
+mins = argrelextrema(altnp, np.less)
 
 # plot data
 plt.figure(1)
-plt.plot(timelist, altlist)
-plt.plot(timenp[peaks], altnp[peaks], 'ro')
+plt.plot(timelist, altlist, 'dimgrey', label='Altitude')
+plt.plot(timenp[peaks], altnp[peaks], 'r.', label='Periapsis')
+plt.plot(timenp[mins], altnp[mins], 'b.', label='Apoapsis')
 plt.xlabel("Time (Days)")
 plt.ylabel("Altitude (km)")
+plt.title("Case 1 Altitude")
+plt.legend()
 plt.figure(2)
-plt.plot(timelist, ecclist)
+plt.plot(timelist, ecclist, 'dimgrey')
 plt.xlabel("Time (Days)")
 plt.ylabel("Eccentricity")
+plt.title("Case 1 Eccentricity")
 plt.figure(3)
-plt.plot(timelist, inclist)
+plt.plot(timelist, inclist, 'dimgrey')
 plt.xlabel("Time (Days)")
 plt.ylabel("Inclination (Deg)")
+plt.title("Case 1 Inclination")
+
+totime = timelist[-1] - timelist[0]
 
 print("Total Delta V:", deltav*1000, "m/s")
+print("Total Time:", totime, "(Days)")
 
 file.close()
 

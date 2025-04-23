@@ -33,6 +33,7 @@ GMAT LEOprop.FM = LEOprop_ForceModel
 
 Create ImpulsiveBurn TCM1
 Create ImpulsiveBurn TCM2
+Create ImpulsiveBurn FinalBurn
 
 Create DifferentialCorrector DC
 
@@ -47,12 +48,13 @@ Create GroundTrackPlot GroundTrackPlot1
 GroundTrackPlot1.Add = {LEOsat}
 
 Create Variable deltav
+Create Variable newdeltav
 
 Create ReportFile rf
 
 Create ReportFile rf2
 rf2.Add = {LEOsat.UTCModJulian, LEOsat.Earth.Altitude, ...
-LEOsat.Earth.RMAG, LEOsat.Earth.ECC, TCM1.Element1, TCM2.Element1, deltav, LEOsat.INC}
+LEOsat.Earth.RMAG, LEOsat.Earth.ECC, TCM1.Element1, TCM2.Element1, deltav, LEOsat.INC, newdeltav}
 
 Create EphemerisFile anEphemerisFile
 GMAT anEphemerisFile.Spacecraft = LEOsat
@@ -68,7 +70,7 @@ BeginMissionSequence
 
 desiredRMAG = 6785
 desiredECC = 0.00005
-totaldv = 0.02
+totaldv = 0.008
 
 % Declare LEOsat, Subscribers and other objects as Global:
 Global LEOsat
@@ -95,6 +97,18 @@ deltav = deltav + abs(TCM1.Element1) + abs(TCM2.Element1)
 EndIf
 	
 EndWhile
+
+newdeltav = totaldv + .01 - deltav
+
+Propagate 'Prop To Periapsis' LEOprop(LEOsat) {LEOsat.Periapsis}
+
+FinalBurn.Element1 = newdeltav
+FinalBurn.Element2 = 0
+FinalBurn.Element3 = 0
+
+Maneuver 'Apply FinalBurn' FinalBurn(LEOsat)
+
+Propagate LEOprop(LEOsat) {LEOsat.Earth.Altitude = 250}
 
 Report rf LEOsat.UTCGregorian LEOsat.UTCModJulian LEOsat.X ...
 LEOsat.Y LEOsat.Z LEOsat.Earth.Altitude LEOsat.Earth.ECC
