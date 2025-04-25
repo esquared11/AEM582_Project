@@ -7,7 +7,7 @@ BeginMissionSequence
 
 Global LEOsat
 Global DC TCM1 TCM2 LEOprop_ForceModel
-Global DefaultOrbitView XYPlot1 GroundTrackPlot1
+%Global DefaultOrbitView XYPlot1 GroundTrackPlot1
 Global rf rf2 anEphemerisFile
   
 Target 'Raise Orbit' DC {SolveMode = Solve, ExitMode = DiscardAndContinue}

@@ -14,6 +14,12 @@ Outputs: plots displaying life-of-mission altitude, etc.
 import os
 from datetime import datetime
 from sgp4.api import Satrec
+from hapsira.core.elements import eccentricity_vector
+from hapsira.bodies import Earth
+from hapsira.twobody import Orbit
+from hapsira.ephem import Ephem
+from astropy import units as u
+from astropy.time import Time
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.signal import find_peaks
@@ -43,20 +49,33 @@ def stateinit(tle):
     # find julian date
     jd = sat.jdsatepoch
     fr = sat.jdsatepochF
+    startep = Time((jd + fr), format="jd")
 
     # calculate the spacecraft's position
     e, r, v = sat.sgp4(jd, fr)
 
-    return [r, v]
+    # calculate eccentricity
+    k = Earth.k.to(u.km**3 / u.s**2).value
+    eccv = eccentricity_vector(k, np.array(r), np.array(v))
+    ecc = np.linalg.norm(eccv)
+
+    # calculate periapsis and apoapsis
+    orb = Orbit.from_vectors(Earth, (r*u.km), (v*u.km/u.s), epoch=startep)
+
+    return [r, v], ecc, orb.r_p/u.km, orb.r_a/u.km
 
 # main code
 starttime = datetime.now()
 
 # read in tle
-tle = read_tle_from_file("tles\isstle.txt")
-state = stateinit(tle)
-desiredrmag = int(np.linalg.norm(state[0]))
-altthresh = int(desiredrmag - 6385)
+tle = read_tle_from_file("tles\\tle2.txt")
+state, e, r_p, r_a = stateinit(tle)
+if e < 0.001:
+    desiredrmag = int(np.linalg.norm(state[0]))
+    altthresh = int(desiredrmag - 6385)
+else:
+    desiredrmag = int(r_a)
+    altthresh = int(r_p - 6385)
 
 # append gmat script file
 with open("test.script", 'r') as gmatfile:
@@ -69,6 +88,7 @@ data[14] = "LEOsat.VX = " + str(state[1][0]) + "\n"
 data[15] = "LEOsat.VY = " + str(state[1][1]) + "\n"
 data[16] = "LEOsat.VZ = " + str(state[1][2]) + "\n"
 data[70] = "desiredRMAG = " + str(desiredrmag) + "\n"
+data[71] = "desiredECC = " + str(e) + "\n"
 data[87] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
 
 with open("test.script", 'w') as gmatfile:

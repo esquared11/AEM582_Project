@@ -9,12 +9,12 @@
 % main code
 Create Spacecraft LEOsat
 LEOsat.DisplayStateType = Cartesian
-LEOsat.X = 1137.8250457656243
-LEOsat.Y = 4665.924676676307
-LEOsat.Z = 4793.767002884218
-LEOsat.VX = -7.149857639848608
-LEOsat.VY = -0.9383420850231425
-LEOsat.VZ = 2.602453133083086
+LEOsat.X = 5287.901688530053
+LEOsat.Y = 4717.909506512873
+LEOsat.Z = 0.0009090241596815417
+LEOsat.VX = -2.731707753485842
+LEOsat.VY = 3.9023517742037974
+LEOsat.VZ = 5.949562903899019
 
 Create ForceModel LEOprop_ForceModel
 LEOprop_ForceModel.CentralBody = Earth
@@ -37,15 +37,15 @@ Create ImpulsiveBurn FinalBurn
 
 Create DifferentialCorrector DC
 
-Create OrbitView DefaultOrbitView
-DefaultOrbitView.Add = {LEOsat, Earth}
+%Create OrbitView DefaultOrbitView
+%DefaultOrbitView.Add = {LEOsat, Earth}
 
-Create XYPlot XYPlot1
-GMAT XYPlot1.XVariable = LEOsat.A1ModJulian
-GMAT XYPlot1.YVariables = {LEOsat.Earth.Altitude}
+%Create XYPlot XYPlot1
+%GMAT XYPlot1.XVariable = LEOsat.A1ModJulian
+%GMAT XYPlot1.YVariables = {LEOsat.Earth.Altitude}
 
-Create GroundTrackPlot GroundTrackPlot1
-GroundTrackPlot1.Add = {LEOsat}
+%Create GroundTrackPlot GroundTrackPlot1
+%GroundTrackPlot1.Add = {LEOsat}
 
 Create Variable deltav
 Create Variable newdeltav
@@ -68,14 +68,14 @@ Create Variable totaldv
 
 BeginMissionSequence
 
-desiredRMAG = 6785
-desiredECC = 0.00005
+desiredRMAG = 7915
+desiredECC = 0.08035831097081418
 totaldv = 0.008
 
 % Declare LEOsat, Subscribers and other objects as Global:
 Global LEOsat
 Global DC TCM1 TCM2 LEOprop_ForceModel
-Global DefaultOrbitView XYPlot1 GroundTrackPlot1
+%Global DefaultOrbitView XYPlot1 GroundTrackPlot1
 Global rf rf2 anEphemerisFile
 Global deltav
 
@@ -85,7 +85,7 @@ While deltav < totaldv
 
 Propagate 'Prop One Step' LEOprop(LEOsat)
 	
-If 'If Alt < Threshold' LEOsat.Earth.Altitude < 400
+If 'If Alt < Threshold' LEOsat.Earth.Altitude < 352
 
 Propagate 'Prop To Periapsis' LEOprop(LEOsat) {LEOsat.Periapsis}
 
