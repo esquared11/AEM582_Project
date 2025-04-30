@@ -68,14 +68,15 @@ def stateinit(tle):
 starttime = datetime.now()
 
 # read in tle
-tle = read_tle_from_file("tles\\tle2.txt")
+tle = read_tle_from_file("tles\\tle3.txt")
 state, e, r_p, r_a = stateinit(tle)
 if e < 0.001:
     desiredrmag = int(np.linalg.norm(state[0]))
-    altthresh = int(desiredrmag - 6385)
+    altthresh = int(desiredrmag - 6395)
 else:
     desiredrmag = int(r_a)
-    altthresh = int(r_p - 6385)
+    altthresh = int(r_a - 6410)
+    deorbitthresh = altthresh - 180
 
 # append gmat script file
 with open("test.script", 'r') as gmatfile:
@@ -87,9 +88,27 @@ data[13] = "LEOsat.Z = " + str(state[0][2]) + "\n"
 data[14] = "LEOsat.VX = " + str(state[1][0]) + "\n"
 data[15] = "LEOsat.VY = " + str(state[1][1]) + "\n"
 data[16] = "LEOsat.VZ = " + str(state[1][2]) + "\n"
-data[70] = "desiredRMAG = " + str(desiredrmag) + "\n"
-data[71] = "desiredECC = " + str(e) + "\n"
-data[87] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
+data[71] = "desiredRMAG = " + str(desiredrmag) + "\n"
+data[72] = "desiredECC = " + str(e) + "\n"
+
+if e < 0.001:
+    data[88] = "\n"
+    data[89] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
+    data[99] = "\n"
+    data[113] = "\n"
+    data[114] = "\n"
+    data[115] = "Propagate LEOprop(LEOsat) {LEOsat.Earth.Altitude = 250}\n"
+    data[116] = "\n"
+    data[117] = "\n"
+else:
+    data[88] = "\n"
+    data[89] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
+    data[99] = "EndIf \n"
+    data[113] = "scapoalt = 50000000 \n"
+    data[114] = "While scapoalt > " + str(deorbitthresh) + "\n"
+    data[115] = "Propagate LEOprop(LEOsat) {LEOsat.Apoapsis} \n"
+    data[116] = "scapoalt = LEOsat.Earth.Altitude \n"
+    data[117] = "EndWhile \n"
 
 with open("test.script", 'w') as gmatfile:
     gmatfile.writelines(data)
@@ -97,8 +116,8 @@ with open("test.script", 'w') as gmatfile:
 gmatfile.close()
 
 # create system call and run
-args = [r"C:\\Users\\eelstein\\GMAT\\bin\\GMAT.exe",
-        "--logfile", r"C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\gmatlog.txt",
+args = [r"C:\\Users\\eelstein\\GMAT\\bin\\GMAT.exe","--logfile",
+        r"C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\gmatlog.txt",
         "--run", r"C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\test.script"]
 
 test = r' '.join(args)
@@ -147,8 +166,8 @@ mins = argrelextrema(altnp, np.less)
 # plot data
 plt.figure(1)
 plt.plot(timelist, altlist, 'dimgrey', label='Altitude')
-plt.plot(timenp[peaks], altnp[peaks], 'r.', label='Periapsis')
-plt.plot(timenp[mins], altnp[mins], 'b.', label='Apoapsis')
+plt.plot(timenp[peaks], altnp[peaks], 'r.', label='Apoapsis')
+plt.plot(timenp[mins], altnp[mins], 'b.', label='Periapsis')
 plt.xlabel("Time (Days)")
 plt.ylabel("Altitude (km)")
 plt.title("Case 1 Altitude")

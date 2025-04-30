@@ -9,12 +9,12 @@
 % main code
 Create Spacecraft LEOsat
 LEOsat.DisplayStateType = Cartesian
-LEOsat.X = 5287.901688530053
-LEOsat.Y = 4717.909506512873
-LEOsat.Z = 0.0009090241596815417
-LEOsat.VX = -2.731707753485842
-LEOsat.VY = 3.9023517742037974
-LEOsat.VZ = 5.949562903899019
+LEOsat.X = 5721.058450790017
+LEOsat.Y = 4954.725471837443
+LEOsat.Z = 0.004188429087354413
+LEOsat.VX = -2.4762433518995355
+LEOsat.VY = 2.08691561059939
+LEOsat.VZ = 6.364044227898287
 
 Create ForceModel LEOprop_ForceModel
 LEOprop_ForceModel.CentralBody = Earth
@@ -54,7 +54,8 @@ Create ReportFile rf
 
 Create ReportFile rf2
 rf2.Add = {LEOsat.UTCModJulian, LEOsat.Earth.Altitude, ...
-LEOsat.Earth.RMAG, LEOsat.Earth.ECC, TCM1.Element1, TCM2.Element1, deltav, LEOsat.INC, newdeltav}
+LEOsat.Earth.RMAG, LEOsat.Earth.ECC, TCM1.Element1, ...
+TCM2.Element1, deltav, LEOsat.INC, newdeltav, LEOsat.VX, LEOsat.VY, LEOsat.VZ}
 
 Create EphemerisFile anEphemerisFile
 GMAT anEphemerisFile.Spacecraft = LEOsat
@@ -64,13 +65,13 @@ TargetLEOStationKeeping.FunctionPath = ...
 'C:\\Users\\eelstein\\Documents\\Bama\\AEM582\\AEM582_Project\\TargetLEOStationKeeping.gmf' 
 
 Create Variable desiredRMAG desiredECC X Y Z
-Create Variable totaldv
+Create Variable totaldv scapoalt
 
 BeginMissionSequence
 
-desiredRMAG = 7915
-desiredECC = 0.08035831097081418
-totaldv = 0.008
+desiredRMAG = 7903
+desiredECC = 0.07761842932029993
+totaldv = 0.493479
 
 % Declare LEOsat, Subscribers and other objects as Global:
 Global LEOsat
@@ -83,9 +84,10 @@ deltav = 0
 
 While deltav < totaldv
 
-Propagate 'Prop One Step' LEOprop(LEOsat)
+Propagate 'Prop To Apoapsis' LEOprop(LEOsat) {LEOsat.Apoapsis}
 	
-If 'If Alt < Threshold' LEOsat.Earth.Altitude < 352
+
+If 'If Alt < Threshold' LEOsat.Earth.Altitude < 1493
 
 Propagate 'Prop To Periapsis' LEOprop(LEOsat) {LEOsat.Periapsis}
 
@@ -94,7 +96,8 @@ TargetLEOStationKeeping(desiredRMAG,desiredECC)
 
 deltav = deltav + abs(TCM1.Element1) + abs(TCM2.Element1)
 
-EndIf
+
+EndIf 
 	
 EndWhile
 
@@ -108,7 +111,12 @@ FinalBurn.Element3 = 0
 
 Maneuver 'Apply FinalBurn' FinalBurn(LEOsat)
 
-Propagate LEOprop(LEOsat) {LEOsat.Earth.Altitude = 250}
+scapoalt = 50000000 
+While scapoalt > 1313
+Propagate LEOprop(LEOsat) {LEOsat.Apoapsis} 
+scapoalt = LEOsat.Earth.Altitude 
+EndWhile 
+
 
 Report rf LEOsat.UTCGregorian LEOsat.UTCModJulian LEOsat.X ...
 LEOsat.Y LEOsat.Z LEOsat.Earth.Altitude LEOsat.Earth.ECC

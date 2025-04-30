@@ -12,10 +12,14 @@ def read_gmat_output(filepath):
     ecclist = []
     inclist = []
     deltavlist = []
+    deltav = 0
     deltav_cumulative = 0.0
     curdv = 0.0
     prevdv = 0.0
     instant_deltav = []
+    velx = list()
+    vely = list()
+    velz = list()
 
     with open(filepath, 'r') as file:
         for i, line in enumerate(file):
@@ -34,6 +38,7 @@ def read_gmat_output(filepath):
                 curdv = abs(float(newline[4])) + abs(float(newline[5])) + abs(float(newline[8]))
                 deltav_change = 0.0
                 if curdv != prevdv:
+                    deltav += curdv
                     deltav_change = (curdv - prevdv)
                     deltav_cumulative += deltav_change
                     prevdv = curdv
@@ -44,12 +49,16 @@ def read_gmat_output(filepath):
                 rmaglist.append(rmag)
                 ecclist.append(ecc)
                 inclist.append(incl)
-                deltavlist.append(deltav_cumulative)
+                deltavlist.append(deltav)
                 instant_deltav.append(deltav_change)
+
+                velx.append(float(newline[9]))
+                vely.append(float(newline[10]))
+                velz.append(float(newline[11]))
 
     return (np.array(timelist), np.array(altlist), np.array(rmaglist), 
             np.array(ecclist), np.array(inclist), 
-            np.array(deltavlist), np.array(instant_deltav))
+            np.array(deltavlist), np.array(instant_deltav), velx, vely, velz)
 
 
 # --- Step 2: Set the correct output file path ---
@@ -57,7 +66,7 @@ output_file = "C:\\Users\\eelstein\\GMAT\\output\\rf2.txt"  # Adjust path if nee
 
 # --- Step 3: Run the function ---
 (timelist, altlist, rmaglist, ecclist, inclist, 
- deltavlist, instant_deltavlist) = read_gmat_output(output_file)
+ deltavlist, instant_deltavlist, velx, vely, velz) = read_gmat_output(output_file)
 
 # --- Step 4: Report the Results ---
 print(f"Total Station-Keeping Delta-V Required: {deltavlist[-1] * 1000:.2f} m/s")
@@ -86,5 +95,15 @@ plt.title("Instantaneous Delta-V Usage vs. Time")
 plt.xlabel("Time (days)")
 plt.ylabel("Instantaneous Delta-V (m/s)")
 plt.grid(True)
+
+
+plt.figure()
+plt.plot(timelist, velx, '--', label='VX')
+plt.plot(timelist, vely, '--', label='VY')
+plt.plot(timelist, velz, '--', label='VZ')
+plt.title("Spacecraft Veloicty by Components")
+plt.xlabel("Time (days)")
+plt.ylabel("Velocity (km/s)")
+plt.legend()
 
 plt.show()

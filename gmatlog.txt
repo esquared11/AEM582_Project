@@ -11,10 +11,10 @@ Successfully set Planetary Source to use: DE405
 Successfully set Planetary Source to use: DE405
 Setting nutation file to C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\NUTATION.DAT
 Setting leap seconds file to C:\Users\eelstein\GMAT\bin\..\data\time\tai-utc.dat
-2025-04-25 13:23:11 GMAT Moderator successfully created core engine
+2025-04-30 15:31:38 GMAT Moderator successfully created core engine
 Successfully set Planetary Source to use: DE405
 Successfully set Planetary Source to use: DE405
-2025-04-25 13:23:11 GMAT GUI successfully launched.
+2025-04-30 15:31:38 GMAT GUI successfully launched.
 *** Error loading "..\plugins\libPythonInterface_py39": GMAT could not load the Python interface. Please check that bin/gmat_startup_file.txt contains the PLUGIN line for "libPythonInterface_py3X" corresponding to an installed Python 3.X distribution. See the User Guide for instructions, or disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
 *** Error loading "libMatlabInterface": GMAT could not load the MATLAB interface. Please check that MATLAB is installed and configured correctly.  See the User Guide for instructions, or disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
 *** Error loading "libFminconOptimizer": Either libMatlabInterface could not load or is disabled, or the MATLAB Optimization Toolbox is not available.  Disable the appropriate PLUGIN line in bin/gmat_startup_file.txt to remove this error.
@@ -46,24 +46,33 @@ Kernel C:\Users\eelstein\GMAT\bin\..\data\planetary_coeff\SPICELunaFrameKernel.t
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7906.82183993  Variance: 8.1781600718
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0798568635695  Variance: 0.000501447401345
+      LEOsat.RMAG  Desired: 7903  Achieved: 7867.32584524  Variance: 35.6741547567
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0762959827031  Variance: 0.00132244661717
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 0.00390183143026, TCM2.Element1 = 6.06345428261e-05
+   Variables:  TCM1.Element1 = 0.0103478715157, TCM2.Element1 = 0.00344419811377
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00525321  Variance: -0.00525321088753
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.080358364417  Variance: -5.34461440105e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.10476314  Variance: -0.104763142261
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776183979594  Variance: 3.13609357233e-08
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 0.0104478715157)
+   Completed iteration 2, pert 2 (TCM2.Element1 = 0.00349419811377)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = 0.0103235016684, TCM2.Element1 = 0.0034197834411
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.00000464  Variance: -4.63821652374e-06
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776184293162  Variance: 4.1337905321e-12
 
 
-*** Targeting Completed in 2 iterations.
+*** Targeting Completed in 3 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 0.00390183143026
-   TCM2.Element1 = 6.06345428261e-05
+   TCM1.Element1 = 0.0103235016684
+   TCM2.Element1 = 0.0034197834411
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -75,24 +84,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.71465658  Variance: -8.71465657959
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809080433583  Variance: -0.000549732387483
+      LEOsat.RMAG  Desired: 7903  Achieved: 7868.5304131  Variance: 34.4695869008
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0752859539888  Variance: 0.00233247533151
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -2.09281238668e-05, TCM2.Element1 = 1.75758917101e-05
+   Variables:  TCM1.Element1 = 0.0100613197302, TCM2.Element1 = -0.000573248870732
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00659228  Variance: -0.00659228038694
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583824279  Variance: -7.14571334604e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.09769879  Variance: -0.097698786858
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776196714342  Variance: -1.24211386662e-06
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -2.09281238668e-05
-   TCM2.Element1 = 1.75758917101e-05
+   TCM1.Element1 = 0.0100613197302
+   TCM2.Element1 = -0.000573248870732
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -104,24 +113,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.41821482  Variance: -8.418214818
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808923492751  Variance: -0.000534038304295
+      LEOsat.RMAG  Desired: 7903  Achieved: 7869.6593363  Variance: 33.3406636973
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0753629214636  Variance: 0.00225550785667
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 4.77376705514e-05, TCM2.Element1 = 2.84620390328e-05
+   Variables:  TCM1.Element1 = 0.00979615252092, TCM2.Element1 = -0.000549978031486
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00615984  Variance: -0.00615984258366
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583785169  Variance: -6.75460759408e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.09135843  Variance: -0.0913584268073
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776195854517  Variance: -1.15613136084e-06
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 4.77376705514e-05
-   TCM2.Element1 = 2.84620390328e-05
+   TCM1.Element1 = 0.00979615252092
+   TCM2.Element1 = -0.000549978031486
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -133,24 +142,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.51415566  Variance: -8.51415566392
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808943688467  Variance: -0.000536057875889
+      LEOsat.RMAG  Desired: 7903  Achieved: 7870.66412839  Variance: 32.33587161
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0754128254512  Variance: 0.00220560386911
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 2.54648353203e-05, TCM2.Element1 = 1.35506820531e-05
+   Variables:  TCM1.Element1 = 0.0095602269476, TCM2.Element1 = -0.000597729095876
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00629766  Variance: -0.00629765871872
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.080358379002  Variance: -6.80311894874e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.0858918  Variance: -0.0858918025642
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.07761952815  Variance: -1.09882974728e-06
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 2.54648353203e-05
-   TCM2.Element1 = 1.35506820531e-05
+   TCM1.Element1 = 0.0095602269476
+   TCM2.Element1 = -0.000597729095876
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -162,24 +171,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.68247029  Variance: -8.68247029367
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809065433379  Variance: -0.000548232367119
+      LEOsat.RMAG  Desired: 7903  Achieved: 7871.85894593  Variance: 31.1410540679
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0754869059396  Variance: 0.00213152338074
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -1.35216947713e-05, TCM2.Element1 = 1.95043959027e-05
+   Variables:  TCM1.Element1 = 0.00927971594326, TCM2.Element1 = -0.000600788167857
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00654294  Variance: -0.00654293737261
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583820727  Variance: -7.11019322863e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.07961447  Variance: -0.079614473595
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776194504069  Variance: -1.02108664143e-06
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -1.35216947713e-05
-   TCM2.Element1 = 1.95043959027e-05
+   TCM1.Element1 = 0.00927971594326
+   TCM2.Element1 = -0.000600788167857
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -191,24 +200,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.6008622  Variance: -8.60086220144
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808933037458  Variance: -0.000534992775016
+      LEOsat.RMAG  Desired: 7903  Achieved: 7872.80651211  Variance: 30.1934878949
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0756019443542  Variance: 0.00201648496606
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 5.40299642008e-06, TCM2.Element1 = -1.05704018259e-05
+   Variables:  TCM1.Element1 = 0.00905744038062, TCM2.Element1 = -0.000395132635783
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00642342  Variance: -0.00642342360061
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583787053  Variance: -6.7734526904e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.07480551  Variance: -0.074805505059
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776193458515  Variance: -9.16531200199e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 5.40299642008e-06
-   TCM2.Element1 = -1.05704018259e-05
+   TCM1.Element1 = 0.00905744038062
+   TCM2.Element1 = -0.000395132635783
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -220,24 +229,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.45378759  Variance: -8.4537875876
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808758915398  Variance: -0.000517580568972
+      LEOsat.RMAG  Desired: 7903  Achieved: 7873.72545204  Variance: 29.2745479573
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0756401211154  Variance: 0.00197830820487
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 3.95003688087e-05, TCM2.Element1 = -4.09752703396e-05
+   Variables:  TCM1.Element1 = 0.00884172653801, TCM2.Element1 = -0.000467125193413
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00621069  Variance: -0.0062106880996
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583742936  Variance: -6.33228296326e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.07028223  Variance: -0.0702822336771
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776193068224  Variance: -8.77502097554e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 3.95003688087e-05
-   TCM2.Element1 = -4.09752703396e-05
+   TCM1.Element1 = 0.00884172653801
+   TCM2.Element1 = -0.000467125193413
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -249,24 +258,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.57035901  Variance: -8.57035901304
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809022473911  Variance: -0.00054393642031
+      LEOsat.RMAG  Desired: 7903  Achieved: 7874.79712645  Variance: 28.2028735482
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0757070540327  Variance: 0.00191137528761
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 1.2491172402e-05, TCM2.Element1 = 2.95437085126e-05
+   Variables:  TCM1.Element1 = 0.00859022699985, TCM2.Element1 = -0.000468767389156
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00637889  Variance: -0.00637889261361
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583809176  Variance: -6.99467369858e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.06518601  Variance: -0.0651860112639
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776192456271  Variance: -8.16306819737e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 1.2491172402e-05
-   TCM2.Element1 = 2.95437085126e-05
+   TCM1.Element1 = 0.00859022699985
+   TCM2.Element1 = -0.000468767389156
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -278,24 +287,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.55709705  Variance: -8.55709705269
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808994327498  Variance: -0.00054112177896
+      LEOsat.RMAG  Desired: 7903  Achieved: 7875.59525605  Variance: 27.4047439472
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0757906230207  Variance: 0.00182780629957
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 1.55677341209e-05, TCM2.Element1 = 2.23423423987e-05
+   Variables:  TCM1.Element1 = 0.00840310827236, TCM2.Element1 = -0.000345173264767
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00635962  Variance: -0.00635962414981
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583802816  Variance: -6.93107733291e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.06151729  Variance: -0.0615172864673
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776191770318  Variance: -7.4771150535e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 1.55677341209e-05
-   TCM2.Element1 = 2.23423423987e-05
+   TCM1.Element1 = 0.00840310827236
+   TCM2.Element1 = -0.000345173264767
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -307,24 +316,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.51102235  Variance: -8.51102234962
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.080882354191  Variance: -0.000524043220167
+      LEOsat.RMAG  Desired: 7903  Achieved: 7876.3055693  Variance: 26.6944307022
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0758435598005  Variance: 0.00177486951976
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 2.62505954898e-05, TCM2.Element1 = -3.01418562502e-05
+   Variables:  TCM1.Element1 = 0.00823653982201, TCM2.Element1 = -0.000314526243636
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00629291  Variance: -0.00629290606048
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583760081  Variance: -6.50373151445e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.05833942  Variance: -0.0583394153109
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776191335909  Variance: -7.0427055332e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 2.62505954898e-05
-   TCM2.Element1 = -3.01418562502e-05
+   TCM1.Element1 = 0.00823653982201
+   TCM2.Element1 = -0.000314526243636
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -336,24 +345,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.50734414  Variance: -8.50734414171
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808764577132  Variance: -0.000518146742411
+      LEOsat.RMAG  Desired: 7903  Achieved: 7877.04494093  Variance: 25.9550590681
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0758795397777  Variance: 0.00173888954255
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 2.70976566572e-05, TCM2.Element1 = -5.12022056098e-05
+   Variables:  TCM1.Element1 = 0.00806318858248, TCM2.Element1 = -0.0003534529775
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00628763  Variance: -0.00628762561246
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583744532  Variance: -6.34823673074e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.05512302  Variance: -0.0551230164674
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.077619103723  Variance: -6.74402653861e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 2.70976566572e-05
-   TCM2.Element1 = -5.12022056098e-05
+   TCM1.Element1 = 0.00806318858248
+   TCM2.Element1 = -0.0003534529775
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -365,24 +374,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.58320258  Variance: -8.58320257663
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808988923443  Variance: -0.000540581373534
+      LEOsat.RMAG  Desired: 7903  Achieved: 7877.60418647  Variance: 25.3958135288
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0759537030137  Variance: 0.00166472630656
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 9.49786498737e-06, TCM2.Element1 = 1.41680149648e-05
+   Variables:  TCM1.Element1 = 0.00793222883848, TCM2.Element1 = -0.000209130565171
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00639693  Variance: -0.00639693285211
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583801235  Variance: -6.91526834823e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.0527519  Variance: -0.0527518966119
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776190487727  Variance: -6.19452428394e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 9.49786498737e-06
-   TCM2.Element1 = 1.41680149648e-05
+   TCM1.Element1 = 0.00793222883848
+   TCM2.Element1 = -0.000209130565171
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -394,24 +403,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.6564641  Variance: -8.65646410113
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809072690695  Variance: -0.000548958098707
+      LEOsat.RMAG  Desired: 7903  Achieved: 7878.13812931  Variance: 24.8618706861
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0759723580756  Variance: 0.00164607124466
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -7.46141849879e-06, TCM2.Element1 = 2.81529503992e-05
+   Variables:  TCM1.Element1 = 0.00780702819633, TCM2.Element1 = -0.000264163822806
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00650464  Variance: -0.00650464085538
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583822298  Variance: -7.12589534185e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.05053332  Variance: -0.0505333167057
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776190332573  Variance: -6.03936984145e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -7.46141849879e-06
-   TCM2.Element1 = 2.81529503992e-05
+   TCM1.Element1 = 0.00780702819633
+   TCM2.Element1 = -0.000264163822806
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -423,24 +432,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.66075533  Variance: -8.66075533247
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809051319084  Variance: -0.000546820937562
+      LEOsat.RMAG  Desired: 7903  Achieved: 7878.64826758  Variance: 24.3517324167
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0760432281057  Variance: 0.00157520121463
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -8.45255455613e-06, TCM2.Element1 = 1.92307159185e-05
+   Variables:  TCM1.Element1 = 0.00768752681549, TCM2.Element1 = -0.000121065470854
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00651086  Variance: -0.00651085719073
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583816726  Variance: -7.07017448753e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04846141  Variance: -0.0484614065372
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.077618983434  Variance: -5.54113662121e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -8.45255455613e-06
-   TCM2.Element1 = 1.92307159185e-05
+   TCM1.Element1 = 0.00768752681549
+   TCM2.Element1 = -0.000121065470854
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -452,24 +461,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.76840553  Variance: -8.76840552548
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809216909518  Variance: -0.000563379980996
+      LEOsat.RMAG  Desired: 7903  Achieved: 7878.87188855  Variance: 24.1281114504
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0760489099073  Variance: 0.00156951941302
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -3.34342264793e-05, TCM2.Element1 = 5.55089894974e-05
+   Variables:  TCM1.Element1 = 0.00763509313898, TCM2.Element1 = -0.000151809927394
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00666996  Variance: -0.00666995767369
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583858872  Variance: -7.49163861641e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.0475649  Variance: -0.0475649032596
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189789069  Variance: -5.49586572293e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -3.34342264793e-05
-   TCM2.Element1 = 5.55089894974e-05
+   TCM1.Element1 = 0.00763509313898
+   TCM2.Element1 = -0.000151809927394
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -481,24 +490,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.6058362  Variance: -8.60583620235
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808948986187  Variance: -0.000536587647907
+      LEOsat.RMAG  Desired: 7903  Achieved: 7879.22773497  Variance: 23.7722650291
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0760880336281  Variance: 0.00153039569223
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 4.25360455497e-06, TCM2.Element1 = -5.92238645194e-06
+   Variables:  TCM1.Element1 = 0.00755173466398, TCM2.Element1 = -9.00264341022e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.0064307  Variance: -0.00643069656871
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583790911  Variance: -6.8120320551e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04615789  Variance: -0.0461578932172
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189517994  Variance: -5.22479071355e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 4.25360455497e-06
-   TCM2.Element1 = -5.92238645194e-06
+   TCM1.Element1 = 0.00755173466398
+   TCM2.Element1 = -9.00264341022e-05
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -510,24 +519,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.45590121  Variance: -8.45590121073
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808800836134  Variance: -0.000521772642593
+      LEOsat.RMAG  Desired: 7903  Achieved: 7879.4553502  Variance: 23.5446497962
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.076165328601  Variance: 0.0014531007193
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 3.90024886005e-05, TCM2.Element1 = -2.60079915029e-05
+   Variables:  TCM1.Element1 = 0.00749843271195, TCM2.Element1 = 0.00014260243087
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00621379  Variance: -0.00621379178665
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583753487  Variance: -6.43778537979e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.0452684  Variance: -0.0452683971444
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776188987561  Variance: -4.69435835676e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 3.90024886005e-05
-   TCM2.Element1 = -2.60079915029e-05
+   TCM1.Element1 = 0.00749843271195
+   TCM2.Element1 = 0.00014260243087
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -539,24 +548,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.57327953  Variance: -8.57327952656
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809040351509  Variance: -0.000545724180066
+      LEOsat.RMAG  Desired: 7903  Achieved: 7879.56277333  Variance: 23.4372266689
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0761300952542  Variance: 0.0014883340661
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 1.18072427008e-05, TCM2.Element1 = 3.54612278812e-05
+   Variables:  TCM1.Element1 = 0.00747319280843, TCM2.Element1 = -1.27320891256e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00638316  Variance: -0.00638316222376
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583813743  Variance: -7.04034992527e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04485129  Variance: -0.0448512913508
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189232881  Variance: -4.9396783694e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 1.18072427008e-05
-   TCM2.Element1 = 3.54612278812e-05
+   TCM1.Element1 = 0.00747319280843
+   TCM2.Element1 = -1.27320891256e-05
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -568,24 +577,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.54346068  Variance: -8.54346067773
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808957008778  Variance: -0.00053738990694
+      LEOsat.RMAG  Desired: 7903  Achieved: 7879.60854201  Variance: 23.3914579865
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0761390564312  Variance: 0.00147937288912
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 1.87235539827e-05, TCM2.Element1 = 1.16612794236e-05
+   Variables:  TCM1.Element1 = 0.00746262075426, TCM2.Element1 = 9.88547904915e-06
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00633984  Variance: -0.00633984336855
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583793525  Variance: -6.83816537561e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04467737  Variance: -0.0446773747781
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189171712  Variance: -4.87850876613e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 1.87235539827e-05
-   TCM2.Element1 = 1.16612794236e-05
+   TCM1.Element1 = 0.00746262075426
+   TCM2.Element1 = 9.88547904915e-06
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -597,24 +606,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.50167404  Variance: -8.50167404213
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808792791883  Variance: -0.000520968217517
+      LEOsat.RMAG  Desired: 7903  Achieved: 7879.46458547  Variance: 23.5354145324
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0761658845703  Variance: 0.00145254474995
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 2.84125800264e-05, TCM2.Element1 = -3.94263523721e-05
+   Variables:  TCM1.Element1 = 0.00749642539208, TCM2.Element1 = 0.000142753414176
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00627844  Variance: -0.00627844463997
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583751911  Variance: -6.42202689638e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04523557  Variance: -0.0452355674615
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776188982642  Variance: -4.68943877494e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 2.84125800264e-05
-   TCM2.Element1 = -3.94263523721e-05
+   TCM1.Element1 = 0.00749642539208
+   TCM2.Element1 = 0.000142753414176
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -626,24 +635,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.49154656  Variance: -8.49154656328
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808789344673  Variance: -0.000520623496441
+      LEOsat.RMAG  Desired: 7903  Achieved: 7879.2245731  Variance: 23.7754269031
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0761992828572  Variance: 0.00141914646307
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 3.07313879391e-05, TCM2.Element1 = -3.84437106784e-05
+   Variables:  TCM1.Element1 = 0.00755269378308, TCM2.Element1 = 0.00032216052688
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00626501  Variance: -0.00626500634553
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583750915  Variance: -6.41207325708e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.046173  Variance: -0.0461730006818
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776188731656  Variance: -4.43845305509e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 3.07313879391e-05
-   TCM2.Element1 = -3.84437106784e-05
+   TCM1.Element1 = 0.00755269378308
+   TCM2.Element1 = 0.00032216052688
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -655,24 +664,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.64997411  Variance: -8.6499741091
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809078872094  Variance: -0.000549576238632
+      LEOsat.RMAG  Desired: 7903  Achieved: 7878.87251746  Variance: 24.1274825409
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0761547453923  Variance: 0.00146368392795
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -5.97098941169e-06, TCM2.Element1 = 3.1905894227e-05
+   Variables:  TCM1.Element1 = 0.00763508875263, TCM2.Element1 = 0.00023929333395
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00649521  Variance: -0.00649521000742
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583823847  Variance: -7.14139145874e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04756399  Variance: -0.0475639884844
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189042174  Variance: -4.74897126457e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -5.97098941169e-06
-   TCM2.Element1 = 3.1905894227e-05
+   TCM1.Element1 = 0.00763508875263
+   TCM2.Element1 = 0.00023929333395
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -684,24 +693,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.70622056  Variance: -8.70622056394
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809155309845  Variance: -0.000557220013641
+      LEOsat.RMAG  Desired: 7903  Achieved: 7878.61789327  Variance: 24.3821067261
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0761450698289  Variance: 0.0014733594914
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -1.89941462881e-05, TCM2.Element1 = 4.70970918868e-05
+   Variables:  TCM1.Element1 = 0.00769491651044, TCM2.Element1 = 0.000262875703492
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00657779  Variance: -0.0065777944119
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583842854  Variance: -7.33145417986e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04858737  Variance: -0.0485873668331
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189100197  Variance: -4.80699379177e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -1.89941462881e-05
-   TCM2.Element1 = 4.70970918868e-05
+   TCM1.Element1 = 0.00769491651044
+   TCM2.Element1 = 0.000262875703492
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -713,24 +722,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.69658744  Variance: -8.6965874438
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809103586137  Variance: -0.000552047642899
+      LEOsat.RMAG  Desired: 7903  Achieved: 7877.82827986  Variance: 25.1717201434
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0761655477647  Variance: 0.00145288155555
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -1.67856639323e-05, TCM2.Element1 = 3.02126611017e-05
+   Variables:  TCM1.Element1 = 0.00788004726286, TCM2.Element1 = 0.000522367876168
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00656351  Variance: -0.00656351350517
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583829932  Variance: -7.20223909956e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.05181906  Variance: -0.0518190610437
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776188886857  Variance: -4.59365390587e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -1.67856639323e-05
-   TCM2.Element1 = 3.02126611017e-05
+   TCM1.Element1 = 0.00788004726286
+   TCM2.Element1 = 0.000522367876168
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -742,24 +751,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.69873452  Variance: -8.69873451561
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809115981777  Variance: -0.000553287206918
+      LEOsat.RMAG  Desired: 7903  Achieved: 7877.20958612  Variance: 25.7904138791
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0761174940604  Variance: 0.00150093525989
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -1.72888562143e-05, TCM2.Element1 = 3.43026320752e-05
+   Variables:  TCM1.Element1 = 0.00802518775552, TCM2.Element1 = 0.000488845014009
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00656688  Variance: -0.00656687631272
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583833248  Variance: -7.23539977654e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.05442674  Variance: -0.0544267401647
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189220619  Variance: -4.92741645639e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -1.72888562143e-05
-   TCM2.Element1 = 3.43026320752e-05
+   TCM1.Element1 = 0.00802518775552
+   TCM2.Element1 = 0.000488845014009
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -771,24 +780,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.45464418  Variance: -8.45464417964
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808740413146  Variance: -0.000515730343789
+      LEOsat.RMAG  Desired: 7903  Achieved: 7876.34316346  Variance: 26.6568365436
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0760970462889  Variance: 0.00152138303137
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 3.9296816272e-05, TCM2.Element1 = -4.80980434337e-05
+   Variables:  TCM1.Element1 = 0.00822825578446, TCM2.Element1 = 0.000614314257441
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00621185  Variance: -0.00621185278578
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.080358373813  Variance: -6.28422304472e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.05818077  Variance: -0.0581807684439
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189316885  Variance: -5.02368232624e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 3.9296816272e-05
-   TCM2.Element1 = -4.80980434337e-05
+   TCM1.Element1 = 0.00822825578446
+   TCM2.Element1 = 0.000614314257441
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -800,24 +809,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.562387  Variance: -8.56238700176
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808982488039  Variance: -0.000539937833053
+      LEOsat.RMAG  Desired: 7903  Achieved: 7875.05288505  Variance: 27.9471149513
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0760714244448  Variance: 0.00154700487551
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 1.4330644371e-05, TCM2.Element1 = 1.64677963643e-05
+   Variables:  TCM1.Element1 = 0.00853117461582, TCM2.Element1 = 0.000819784311903
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00636734  Variance: -0.00636733905958
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.080358379888  Variance: -6.89171647944e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.06401065  Variance: -0.0640106531555
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189386606  Variance: -5.0934028667e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 1.4330644371e-05
-   TCM2.Element1 = 1.64677963643e-05
+   TCM1.Element1 = 0.00853117461582
+   TCM2.Element1 = 0.000819784311903
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -829,24 +838,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.47533013  Variance: -8.47533012948
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808978417005  Variance: -0.000539530729665
+      LEOsat.RMAG  Desired: 7903  Achieved: 7873.7951756  Variance: 29.2048244029
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0759790282013  Variance: 0.001639401119
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 3.44967681969e-05, TCM2.Element1 = 3.53914979553e-05
+   Variables:  TCM1.Element1 = 0.00882612893214, TCM2.Element1 = 0.000769907621898
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00624168  Variance: -0.00624167628757
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583798778  Variance: -6.89070185633e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.06995672  Variance: -0.0699567231213
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776190111344  Variance: -5.81814071018e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 3.44967681969e-05
-   TCM2.Element1 = 3.53914979553e-05
+   TCM1.Element1 = 0.00882612893214
+   TCM2.Element1 = 0.000769907621898
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -858,24 +867,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.41587878  Variance: -8.41587878267
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808649676409  Variance: -0.000506656670081
+      LEOsat.RMAG  Desired: 7903  Achieved: 7872.31776188  Variance: 30.6822381209
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0759269791835  Variance: 0.00169145013677
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 4.82715082806e-05, TCM2.Element1 = -7.25467841951e-05
+   Variables:  TCM1.Element1 = 0.00917299294548, TCM2.Element1 = 0.000920695714289
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00615654  Variance: -0.00615654099511
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583715801  Variance: -6.06093152888e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.07728142  Variance: -0.0772814158636
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776190434671  Variance: -6.14146815278e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 4.82715082806e-05
-   TCM2.Element1 = -7.25467841951e-05
+   TCM1.Element1 = 0.00917299294548
+   TCM2.Element1 = 0.000920695714289
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -887,24 +896,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.65350023  Variance: -8.65350022797
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809133162332  Variance: -0.000555005262431
+      LEOsat.RMAG  Desired: 7903  Achieved: 7870.11107826  Variance: 32.8889217406
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.075881344679  Variance: 0.0017370846413
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -6.78959315408e-06, TCM2.Element1 = 5.11780865323e-05
+   Variables:  TCM1.Element1 = 0.00969148249797, TCM2.Element1 = 0.00126414976709
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00650039  Variance: -0.00650039297943
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583837415  Variance: -7.27707262366e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.08890367  Variance: -0.0889036723229
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776190567967  Variance: -6.27476425999e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -6.78959315408e-06
-   TCM2.Element1 = 5.11780865323e-05
+   TCM1.Element1 = 0.00969148249797
+   TCM2.Element1 = 0.00126414976709
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -916,24 +925,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.72056195  Variance: -8.72056195143
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.080916975429  Variance: -0.000558664458158
+      LEOsat.RMAG  Desired: 7903  Achieved: 7868.5171553  Variance: 34.4828446954
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0757306396607  Variance: 0.00188778965959
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -2.23212996395e-05, TCM2.Element1 = 4.9112803688e-05
+   Variables:  TCM1.Element1 = 0.010065890531, TCM2.Element1 = 0.00107526825596
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00659894  Variance: -0.00659893734064
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583846527  Variance: -7.36818616537e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.09779833  Variance: -0.0977983345601
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776192059182  Variance: -7.7659789835e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -2.23212996395e-05
-   TCM2.Element1 = 4.9112803688e-05
+   TCM1.Element1 = 0.010065890531
+   TCM2.Element1 = 0.00107526825596
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -945,24 +954,33 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.75242682  Variance: -8.75242682003
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809219339904  Variance: -0.000563623019571
+      LEOsat.RMAG  Desired: 7903  Achieved: 7866.23499061  Variance: 36.7650093897
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0756751618343  Variance: 0.00194326748599
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -2.97393392248e-05, TCM2.Element1 = 6.0099534877e-05
+   Variables:  TCM1.Element1 = 0.0106025993484, TCM2.Element1 = 0.00139800281634
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00664626  Variance: -0.00664626039452
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583859432  Variance: -7.49724048676e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.1112806  Variance: -0.111280598509
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776192390487  Variance: -8.09728439397e-07
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 0.0107025993484)
+   Completed iteration 2, pert 2 (TCM2.Element1 = 0.00144800281634)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = 0.0105767196835, TCM2.Element1 = 0.00137518822572
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.00000499  Variance: -4.9855780162e-06
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776184293228  Variance: -2.4637514251e-12
 
 
-*** Targeting Completed in 2 iterations.
+*** Targeting Completed in 3 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -2.97393392248e-05
-   TCM2.Element1 = 6.0099534877e-05
+   TCM1.Element1 = 0.0105767196835
+   TCM2.Element1 = 0.00137518822572
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -974,24 +992,33 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.50804986  Variance: -8.5080498595
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808815877699  Variance: -0.000523276799123
+      LEOsat.RMAG  Desired: 7903  Achieved: 7864.65663632  Variance: 38.3433636847
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0755238999364  Variance: 0.00209452938387
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 2.69213675466e-05, TCM2.Element1 = -3.25168891889e-05
+   Variables:  TCM1.Element1 = 0.0109735801962, TCM2.Element1 = 0.00120296033847
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00628882  Variance: -0.0062888179682
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.080358375727  Variance: -6.47561808897e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.12110279  Variance: -0.121102788862
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.077619411815  Variance: -9.8249465405e-07
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 0.0110735801962)
+   Completed iteration 2, pert 2 (TCM2.Element1 = 0.00125296033847)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = 0.0109454184263, TCM2.Element1 = 0.00117852269556
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.00000552  Variance: -5.5232349041e-06
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776184293229  Variance: -2.5958957206e-12
 
 
-*** Targeting Completed in 2 iterations.
+*** Targeting Completed in 3 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 2.69213675466e-05
-   TCM2.Element1 = -3.25168891889e-05
+   TCM1.Element1 = 0.0109454184263
+   TCM2.Element1 = 0.00117852269556
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1003,24 +1030,33 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.53707644  Variance: -8.53707643753
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808887550496  Variance: -0.00053044407879
+      LEOsat.RMAG  Desired: 7903  Achieved: 7863.17247159  Variance: 39.8275284061
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0754103281923  Variance: 0.00220810112802
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 2.02029215075e-05, TCM2.Element1 = -1.27927863814e-05
+   Variables:  TCM1.Element1 = 0.0113226040181, TCM2.Element1 = 0.00112483868692
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00633063  Variance: -0.00633063433361
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583774959  Variance: -6.65250962373e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.1307181  Variance: -0.130718103107
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776195482766  Variance: -1.11895630427e-06
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 0.0114226040181)
+   Completed iteration 2, pert 2 (TCM2.Element1 = 0.00117483868692)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = 0.0112922082742, TCM2.Element1 = 0.00109869547811
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.00000606  Variance: -6.06447883911e-06
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776184293225  Variance: -2.15845397111e-12
 
 
-*** Targeting Completed in 2 iterations.
+*** Targeting Completed in 3 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 2.02029215075e-05
-   TCM2.Element1 = -1.27927863814e-05
+   TCM1.Element1 = 0.0112922082742
+   TCM2.Element1 = 0.00109869547811
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1032,24 +1068,33 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.57299075  Variance: -8.57299075241
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809020523542  Variance: -0.000543741383423
+      LEOsat.RMAG  Desired: 7903  Achieved: 7862.5983136  Variance: 40.4016863984
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0752522106429  Variance: 0.00236621867741
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 1.18722856088e-05, TCM2.Element1 = 2.81387936898e-05
+   Variables:  TCM1.Element1 = 0.0114571741667, TCM2.Element1 = 0.000671964964246
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00638273  Variance: -0.00638273061941
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583808575  Variance: -6.98867136384e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.1345264  Variance: -0.134526401702
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776197539515  Variance: -1.32463124541e-06
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 0.0115571741667)
+   Completed iteration 2, pert 2 (TCM2.Element1 = 0.000721964964246)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = 0.0114258952751, TCM2.Element1 = 0.000645705054216
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.00000628  Variance: -6.2830549723e-06
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776184293243  Variance: -4.0160930137e-12
 
 
-*** Targeting Completed in 2 iterations.
+*** Targeting Completed in 3 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 1.18722856088e-05
-   TCM2.Element1 = 2.81387936898e-05
+   TCM1.Element1 = 0.0114258952751
+   TCM2.Element1 = 0.000645705054216
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1061,24 +1106,33 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.45375372  Variance: -8.45375372146
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808919331078  Variance: -0.000533622137
+      LEOsat.RMAG  Desired: 7903  Achieved: 7862.93041667  Variance: 40.0695833349
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0751491921918  Variance: 0.00246923712851
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 3.95011830537e-05, TCM2.Element1 = 1.85631388613e-05
+   Variables:  TCM1.Element1 = 0.01137868275, TCM2.Element1 = 0.00021434954467
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00621059  Variance: -0.00621058746765
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583784193  Variance: -6.74484936375e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.13230263  Variance: -0.132302626321
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776198806887  Variance: -1.45136839416e-06
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 0.01147868275)
+   Completed iteration 2, pert 2 (TCM2.Element1 = 0.00026434954467)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = 0.0113479216702, TCM2.Element1 = 0.000189066144457
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.00000615  Variance: -6.15492535871e-06
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776184293252  Variance: -4.85930740091e-12
 
 
-*** Targeting Completed in 2 iterations.
+*** Targeting Completed in 3 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 3.95011830537e-05
-   TCM2.Element1 = 1.85631388613e-05
+   TCM1.Element1 = 0.0113479216702
+   TCM2.Element1 = 0.000189066144457
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1090,24 +1144,33 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.44524297  Variance: -8.44524297091
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808713257858  Variance: -0.000513014814971
+      LEOsat.RMAG  Desired: 7903  Achieved: 7864.12308387  Variance: 38.8769161291
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0751377001407  Variance: 0.00248072917961
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 4.14657622232e-05, TCM2.Element1 = -5.58040373897e-05
+   Variables:  TCM1.Element1 = 0.0110976831611, TCM2.Element1 = -0.000103291131426
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00619852  Variance: -0.00619852253749
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583731906  Variance: -6.22197685457e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.12448819  Variance: -0.124488192663
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776198816159  Variance: -1.45229562232e-06
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 0.0111976831611)
+   Completed iteration 2, pert 2 (TCM2.Element1 = -5.32911314265e-05)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = 0.011068739093, TCM2.Element1 = -0.000126776076237
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.00000571  Variance: -5.71141481487e-06
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.077618429328  Variance: -7.70174202191e-12
 
 
-*** Targeting Completed in 2 iterations.
+*** Targeting Completed in 3 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 4.14657622232e-05
-   TCM2.Element1 = -5.58040373897e-05
+   TCM1.Element1 = 0.011068739093
+   TCM2.Element1 = -0.000126776076237
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1119,24 +1182,33 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.68162563  Variance: -8.6816256264
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809178000751  Variance: -0.000559489104293
+      LEOsat.RMAG  Desired: 7903  Achieved: 7865.72633694  Variance: 37.2736630567
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.075133597016  Variance: 0.00248483230427
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -1.32984780256e-05, TCM2.Element1 = 6.12788433399e-05
+   Variables:  TCM1.Element1 = 0.0107205080792, TCM2.Element1 = -0.000487990246754
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00654164  Variance: -0.00654164441221
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583848762  Variance: -7.39053983012e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.11436784  Variance: -0.114367843589
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776198626209  Variance: -1.43330064718e-06
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 0.0108205080792)
+   Completed iteration 2, pert 2 (TCM2.Element1 = -0.000437990246754)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = 0.0106939160255, TCM2.Element1 = -0.000509220019786
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.00000515  Variance: -5.1521574278e-06
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776184293295  Variance: -9.16379472304e-12
 
 
-*** Targeting Completed in 2 iterations.
+*** Targeting Completed in 3 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -1.32984780256e-05
-   TCM2.Element1 = 6.12788433399e-05
+   TCM1.Element1 = 0.0106939160255
+   TCM2.Element1 = -0.000509220019786
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1148,24 +1220,33 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.73441155  Variance: -8.73441154936
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809190096046  Variance: -0.00056069863377
+      LEOsat.RMAG  Desired: 7903  Achieved: 7867.75994234  Variance: 35.2400576552
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0752395810786  Variance: 0.00237884824173
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -2.55327906971e-05, TCM2.Element1 = 5.34741166246e-05
+   Variables:  TCM1.Element1 = 0.010242451077, TCM2.Element1 = -0.00056591632103
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00661944  Variance: -0.00661944359217
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583851854  Variance: -7.4214583784e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.10214779  Variance: -0.102147785959
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776197257108  Variance: -1.29639051562e-06
+
+   Completed iteration 2, pert 1 (TCM1.Element1 = 0.010342451077)
+   Completed iteration 2, pert 2 (TCM2.Element1 = -0.00051591632103)
+
+DC Iteration 3; Nominal Pass
+   Variables:  TCM1.Element1 = 0.0102186988738, TCM2.Element1 = -0.000584836829619
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.0000045  Variance: -4.49974231742e-06
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776184293257  Variance: -5.39469857674e-12
 
 
-*** Targeting Completed in 2 iterations.
+*** Targeting Completed in 3 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -2.55327906971e-05
-   TCM2.Element1 = 5.34741166246e-05
+   TCM1.Element1 = 0.0102186988738
+   TCM2.Element1 = -0.000584836829619
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1177,24 +1258,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.72621472  Variance: -8.72621471931
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809191845169  Variance: -0.000560873546095
+      LEOsat.RMAG  Desired: 7903  Achieved: 7869.83205383  Variance: 33.1679461693
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.075354105086  Variance: 0.00226432423431
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -2.36599481194e-05, TCM2.Element1 = 5.6068689423e-05
+   Variables:  TCM1.Element1 = 0.00975557448255, TCM2.Element1 = -0.00062197004705
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.0066074  Variance: -0.00660739828436
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583852483  Variance: -7.42774938639e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.09040472  Variance: -0.0904047233998
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776195900876  Variance: -1.16076734558e-06
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -2.36599481194e-05
-   TCM2.Element1 = 5.6068689423e-05
+   TCM1.Element1 = 0.00975557448255
+   TCM2.Element1 = -0.00062197004705
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1206,24 +1287,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.47269771  Variance: -8.47269770903
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808772722562  Variance: -0.000518961285419
+      LEOsat.RMAG  Desired: 7903  Achieved: 7871.89845295  Variance: 31.1015470452
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0754730169094  Variance: 0.00214541241093
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 3.51215216063e-05, TCM2.Element1 = -4.02304730743e-05
+   Variables:  TCM1.Element1 = 0.00927034609898, TCM2.Element1 = -0.000661091575616
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00623786  Variance: -0.00623785994321
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583746459  Variance: -6.36750883687e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.07940869  Variance: -0.0794086919741
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776194609331  Variance: -1.03161278393e-06
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 3.51215216063e-05
-   TCM2.Element1 = -4.02304730743e-05
+   TCM1.Element1 = 0.00927034609898
+   TCM2.Element1 = -0.000661091575616
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1235,24 +1316,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.5497998  Variance: -8.54979979925
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808929340971  Variance: -0.000534623126287
+      LEOsat.RMAG  Desired: 7903  Achieved: 7873.44498836  Variance: 29.5550116406
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0756699628628  Variance: 0.00194846645752
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 1.72582017984e-05, TCM2.Element1 = -2.09943642033e-07
+   Variables:  TCM1.Element1 = 0.00890758813007, TCM2.Element1 = -0.000292087895099
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00634925  Variance: -0.00634924961378
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583785687  Variance: -6.75979343195e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.07164724  Variance: -0.0716472380027
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.077619285798  Variance: -8.56477697514e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 1.72582017984e-05
-   TCM2.Element1 = -2.09943642033e-07
+   TCM1.Element1 = 0.00890758813007
+   TCM2.Element1 = -0.000292087895099
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1264,24 +1345,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.38655106  Variance: -8.38655106388
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.080892349403  Variance: -0.000534038432233
+      LEOsat.RMAG  Desired: 7903  Achieved: 7875.21377476  Variance: 27.786225242
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0757080730491  Variance: 0.00191035627121
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 5.50685301768e-05, TCM2.Element1 = 3.5763287837e-05
+   Variables:  TCM1.Element1 = 0.00849245153117, TCM2.Element1 = -0.000561330499479
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00611472  Variance: -0.00611472077253
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.080358378513  Variance: -6.75421486379e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.06325529  Variance: -0.0632552948218
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776192405799  Variance: -8.11259626296e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 5.50685301768e-05
-   TCM2.Element1 = 3.5763287837e-05
+   TCM1.Element1 = 0.00849245153117
+   TCM2.Element1 = -0.000561330499479
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1293,24 +1374,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.51705118  Variance: -8.51705117715
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808809941377  Variance: -0.000522683166894
+      LEOsat.RMAG  Desired: 7903  Achieved: 7876.47248308  Variance: 26.5275169211
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0758866942828  Variance: 0.0017317350375
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 2.48528286212e-05, TCM2.Element1 = -3.6623075188e-05
+   Variables:  TCM1.Element1 = 0.00819747203466, TCM2.Element1 = -0.000193720275967
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00630161  Variance: -0.00630161301342
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583755997  Variance: -6.46288893513e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.05760679  Variance: -0.0576067942393
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776191010573  Variance: -6.71736996249e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 2.48528286212e-05
-   TCM2.Element1 = -3.6623075188e-05
+   TCM1.Element1 = 0.00819747203466
+   TCM2.Element1 = -0.000193720275967
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1322,24 +1403,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.62228694  Variance: -8.62228694239
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809079694346  Variance: -0.000549658463752
+      LEOsat.RMAG  Desired: 7903  Achieved: 7877.3755484  Variance: 25.6244516008
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0759558523839  Variance: 0.00166257693643
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 4.44744968337e-07, TCM2.Element1 = 3.87799469164e-05
+   Variables:  TCM1.Element1 = 0.00798576263224, TCM2.Element1 = -0.000147642588942
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00645562  Variance: -0.00645561864076
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.080358382437  Variance: -7.14662269224e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.05371317  Variance: -0.0537131736555
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776190474023  Variance: -6.18081973394e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 4.44744968337e-07
-   TCM2.Element1 = 3.87799469164e-05
+   TCM1.Element1 = 0.00798576263224
+   TCM2.Element1 = -0.000147642588942
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1351,24 +1432,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.79478832  Variance: -8.79478831905
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809328428673  Variance: -0.000574531896463
+      LEOsat.RMAG  Desired: 7903  Achieved: 7878.1869762  Variance: 24.8130238037
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0760493555828  Variance: 0.00156907373752
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = -3.9522285077e-05, TCM2.Element1 = 9.07310709905e-05
+   Variables:  TCM1.Element1 = 0.00779565106847, TCM2.Element1 = 9.37863281858e-06
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00670903  Variance: -0.00670903123319
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583886801  Variance: -7.77092893228e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.05033345  Variance: -0.050333453145
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189790235  Variance: -5.49703187705e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = -3.9522285077e-05
-   TCM2.Element1 = 9.07310709905e-05
+   TCM1.Element1 = 0.00779565106847
+   TCM2.Element1 = 9.37863281858e-06
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1380,24 +1461,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.51565055  Variance: -8.51565054686
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0808923160731  Variance: -0.000534005102291
+      LEOsat.RMAG  Desired: 7903  Achieved: 7878.83449067  Variance: 24.1655093271
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0760994351435  Variance: 0.00151899417677
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 2.51779331146e-05, TCM2.Element1 = 5.53995846682e-06
+   Variables:  TCM1.Element1 = 0.00764389167272, TCM2.Element1 = 4.39146804698e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00629963  Variance: -0.00629963482243
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583784439  Variance: -6.74731069489e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04771347  Variance: -0.0477134680496
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776189436276  Variance: -5.14307280569e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 2.51779331146e-05
-   TCM2.Element1 = 5.53995846682e-06
+   TCM1.Element1 = 0.00764389167272
+   TCM2.Element1 = 4.39146804698e-05
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1409,24 +1490,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.52127312  Variance: -8.52127311952
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0809055819354  Variance: -0.000547270964565
+      LEOsat.RMAG  Desired: 7903  Achieved: 7879.26753014  Variance: 23.7324698628
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0761655163826  Variance: 0.00145291293775
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 2.38545114104e-05, TCM2.Element1 = 5.34757284966e-05
+   Variables:  TCM1.Element1 = 0.0075425113209, TCM2.Element1 = 0.000187055392326
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00630777  Variance: -0.00630777107745
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583817895  Variance: -7.0818663378e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04600292  Variance: -0.0460029221285
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776188981821  Variance: -4.6886182202e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 2.38545114104e-05
-   TCM2.Element1 = 5.34757284966e-05
+   TCM1.Element1 = 0.0075425113209
+   TCM2.Element1 = 0.000187055392326
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1438,24 +1519,24 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7923.47018735  Variance: -8.47018734536
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.08092027123  Variance: -0.000561960259234
+      LEOsat.RMAG  Desired: 7903  Achieved: 7879.46267737  Variance: 23.5373226278
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0762065589167  Variance: 0.00141187040357
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 3.56875777214e-05, TCM2.Element1 = 0.000119706333236
+   Variables:  TCM1.Element1 = 0.00749683890954, TCM2.Element1 = 0.000293510768553
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.00623434  Variance: -0.00623434231693
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583852152  Variance: -7.42444069973e-08
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04524145  Variance: -0.0452414501251
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776188693049  Variance: -4.39984566628e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 3.56875777214e-05
-   TCM2.Element1 = 0.000119706333236
+   TCM1.Element1 = 0.00749683890954
+   TCM2.Element1 = 0.000293510768553
 
 ********************************************************
 *** Performing Differential Correction (using "DC")
@@ -1467,29 +1548,145 @@ Final Variable values:
 DC Iteration 1; Nominal Pass
    Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7901.89871651  Variance: 13.1012834943
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0798671542444  Variance: 0.000491156726369
+      LEOsat.RMAG  Desired: 7903  Achieved: 7879.4263839  Variance: 23.5736160978
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0762237505588  Variance: 0.00139467876147
 
    Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
    Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
 
 DC Iteration 2; Nominal Pass
-   Variables:  TCM1.Element1 = 0.00504935393873, TCM2.Element1 = 0.00124651298199
+   Variables:  TCM1.Element1 = 0.00750539124465, TCM2.Element1 = 0.000365971708328
    Goals and achieved values:
-      LEOsat.RMAG  Desired: 7915  Achieved: 7915.01377838  Variance: -0.0137783755345
-      LEOsat.Earth.ECC  Desired: 0.0803583109708  Achieved: 0.0803583038012  Variance: 7.16966025438e-09
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04538365  Variance: -0.045383651649
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776188561291  Variance: -4.26808762902e-07
 
 
 *** Targeting Completed in 2 iterations.
 *** The Targeter converged!
 Final Variable values:
-   TCM1.Element1 = 0.00504935393873
-   TCM2.Element1 = 0.00124651298199
+   TCM1.Element1 = 0.00750539124465
+   TCM2.Element1 = 0.000365971708328
+
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 2 variables; 2 goals
+   Variables:  TCM1.Element1, TCM2.Element1
+   Goals:  LEOsat.RMAG, LEOsat.Earth.ECC
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7879.31101841  Variance: 23.6889815884
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0762702747214  Variance: 0.00134815459886
+
+   Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
+   Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
+
+DC Iteration 2; Nominal Pass
+   Variables:  TCM1.Element1 = 0.00753259328609, TCM2.Element1 = 0.000564681811221
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04583606  Variance: -0.0458360625689
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776188202984  Variance: -3.90978118242e-07
+
+
+*** Targeting Completed in 2 iterations.
+*** The Targeter converged!
+Final Variable values:
+   TCM1.Element1 = 0.00753259328609
+   TCM2.Element1 = 0.000564681811221
+
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 2 variables; 2 goals
+   Variables:  TCM1.Element1, TCM2.Element1
+   Goals:  LEOsat.RMAG, LEOsat.Earth.ECC
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7878.87523701  Variance: 24.1247629887
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0762330643836  Variance: 0.00138536493673
+
+   Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
+   Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
+
+DC Iteration 2; Nominal Pass
+   Variables:  TCM1.Element1 = 0.00763460720633, TCM2.Element1 = 0.00052860240313
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04755093  Variance: -0.0475509274938
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.077618844443  Variance: -4.15122736769e-07
+
+
+*** Targeting Completed in 2 iterations.
+*** The Targeter converged!
+Final Variable values:
+   TCM1.Element1 = 0.00763460720633
+   TCM2.Element1 = 0.00052860240313
+
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 2 variables; 2 goals
+   Variables:  TCM1.Element1, TCM2.Element1
+   Goals:  LEOsat.RMAG, LEOsat.Earth.ECC
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7878.27756675  Variance: 24.7224332482
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.076254206258  Variance: 0.00136422306234
+
+   Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
+   Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
+
+DC Iteration 2; Nominal Pass
+   Variables:  TCM1.Element1 = 0.00777488111538, TCM2.Element1 = 0.000745864761006
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.04996942  Variance: -0.0499694242626
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776188210899  Variance: -3.91769584551e-07
+
+
+*** Targeting Completed in 2 iterations.
+*** The Targeter converged!
+Final Variable values:
+   TCM1.Element1 = 0.00777488111538
+   TCM2.Element1 = 0.000745864761006
+
+********************************************************
+*** Performing Differential Correction (using "DC")
+*** 2 variables; 2 goals
+   Variables:  TCM1.Element1, TCM2.Element1
+   Goals:  LEOsat.RMAG, LEOsat.Earth.ECC
+   SolverMode:  Solve
+********************************************************
+DC Iteration 1; Nominal Pass
+   Variables:  TCM1.Element1 = 0.002, TCM2.Element1 = 1e-05
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7877.11192285  Variance: 25.8880771527
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0762513223683  Variance: 0.00136710695203
+
+   Completed iteration 1, pert 1 (TCM1.Element1 = 0.0021)
+   Completed iteration 1, pert 2 (TCM2.Element1 = 6e-05)
+
+DC Iteration 2; Nominal Pass
+   Variables:  TCM1.Element1 = 0.00804826588926, TCM2.Element1 = 0.00100672991821
+   Goals and achieved values:
+      LEOsat.RMAG  Desired: 7903  Achieved: 7903.05484564  Variance: -0.0548456423694
+      LEOsat.Earth.ECC  Desired: 0.0776184293203  Achieved: 0.0776188055147  Variance: -3.76194361953e-07
+
+
+*** Targeting Completed in 2 iterations.
+*** The Targeter converged!
+Final Variable values:
+   TCM1.Element1 = 0.00804826588926
+   TCM2.Element1 = 0.00100672991821
 
 
 Mission run completed.
-===> Total Run Time: 653.857 seconds
+===> Total Run Time: 2866.113 seconds
 
 ========================================
 Moderator is deleting core engine...
-2025-04-25 13:34:29 GMAT GUI exiting.
+2025-04-30 16:35:14 GMAT GUI exiting.
