@@ -78,6 +78,7 @@ print(f"Total Station-Keeping Delta-V Required: {deltavlist[-1] * 1000:.2f} m/s"
 print(f"Total Time Simulated: {timelist[-1]:.2f} days")
 avburnstr = deltavlist[-1]/burnnum
 print("Average Burn Strength: ", avburnstr)
+print("Number of Burns: ", burnnum)
 
 # --- Step 5: Plot Altitude vs. Time ---
 plt.figure()
