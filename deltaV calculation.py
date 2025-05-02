@@ -16,6 +16,7 @@ def read_gmat_output(filepath):
     deltav_cumulative = 0.0
     curdv = 0.0
     prevdv = 0.0
+    burnnum = 0
     instant_deltav = []
     velx = list()
     vely = list()
@@ -43,6 +44,7 @@ def read_gmat_output(filepath):
                     instdeltv = curdv
                     deltav_cumulative += deltav_change
                     prevdv = curdv
+                    burnnum += 1
                 else:
                     instdeltv = 0
                 incl = float(newline[7])
@@ -61,7 +63,7 @@ def read_gmat_output(filepath):
 
     return (np.array(timelist), np.array(altlist), np.array(rmaglist), 
             np.array(ecclist), np.array(inclist), 
-            np.array(deltavlist), np.array(instant_deltav), velx, vely, velz)
+            np.array(deltavlist), np.array(instant_deltav), velx, vely, velz, burnnum)
 
 
 # --- Step 2: Set the correct output file path ---
@@ -69,11 +71,13 @@ output_file = "C:\\Users\\eelstein\\GMAT\\output\\rf2.txt"  # Adjust path if nee
 
 # --- Step 3: Run the function ---
 (timelist, altlist, rmaglist, ecclist, inclist, 
- deltavlist, instant_deltavlist, velx, vely, velz) = read_gmat_output(output_file)
+ deltavlist, instant_deltavlist, velx, vely, velz, burnnum) = read_gmat_output(output_file)
 
 # --- Step 4: Report the Results ---
 print(f"Total Station-Keeping Delta-V Required: {deltavlist[-1] * 1000:.2f} m/s")
 print(f"Total Time Simulated: {timelist[-1]:.2f} days")
+avburnstr = deltavlist[-1]/burnnum
+print("Average Burn Strength: ", avburnstr)
 
 # --- Step 5: Plot Altitude vs. Time ---
 plt.figure()
