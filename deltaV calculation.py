@@ -40,8 +40,11 @@ def read_gmat_output(filepath):
                 if curdv != prevdv:
                     deltav += curdv
                     deltav_change = (curdv - prevdv)
+                    instdeltv = curdv
                     deltav_cumulative += deltav_change
                     prevdv = curdv
+                else:
+                    instdeltv = 0
                 incl = float(newline[7])
 
                 timelist.append(time)
@@ -50,7 +53,7 @@ def read_gmat_output(filepath):
                 ecclist.append(ecc)
                 inclist.append(incl)
                 deltavlist.append(deltav)
-                instant_deltav.append(deltav_change)
+                instant_deltav.append(instdeltv)
 
                 velx.append(float(newline[9]))
                 vely.append(float(newline[10]))

@@ -9,12 +9,12 @@
 % main code
 Create Spacecraft LEOsat
 LEOsat.DisplayStateType = Cartesian
-LEOsat.X = 5721.058450790017
-LEOsat.Y = 4954.725471837443
-LEOsat.Z = 0.004188429087354413
-LEOsat.VX = -2.4762433518995355
-LEOsat.VY = 2.08691561059939
-LEOsat.VZ = 6.364044227898287
+LEOsat.X = 1137.8250457656243
+LEOsat.Y = 4665.924676676307
+LEOsat.Z = 4793.767002884218
+LEOsat.VX = -7.149857639848608
+LEOsat.VY = -0.9383420850231425
+LEOsat.VZ = 2.602453133083086
 
 Create ForceModel LEOprop_ForceModel
 LEOprop_ForceModel.CentralBody = Earth
@@ -69,9 +69,10 @@ Create Variable totaldv scapoalt
 
 BeginMissionSequence
 
-desiredRMAG = 7903
-desiredECC = 0.07761842932029993
-totaldv = 0.493479
+desiredRMAG = 6785
+desiredECC = 0.0009153809633768817
+deltav = 0
+totaldv = 0.165123
 
 % Declare LEOsat, Subscribers and other objects as Global:
 Global LEOsat
@@ -84,10 +85,10 @@ deltav = 0
 
 While deltav < totaldv
 
-Propagate 'Prop To Apoapsis' LEOprop(LEOsat) {LEOsat.Apoapsis}
-	
+Propagate 'Prop One Step' LEOprop(LEOsat) 
 
-If 'If Alt < Threshold' LEOsat.Earth.Altitude < 1493
+
+If 'If Alt < Threshold' LEOsat.Earth.Altitude < 380
 
 Propagate 'Prop To Periapsis' LEOprop(LEOsat) {LEOsat.Periapsis}
 
@@ -95,7 +96,6 @@ Propagate 'Prop To Periapsis' LEOprop(LEOsat) {LEOsat.Periapsis}
 TargetLEOStationKeeping(desiredRMAG,desiredECC)
 
 deltav = deltav + abs(TCM1.Element1) + abs(TCM2.Element1)
-
 
 EndIf 
 	
@@ -111,11 +111,11 @@ FinalBurn.Element3 = 0
 
 Maneuver 'Apply FinalBurn' FinalBurn(LEOsat)
 
-scapoalt = 50000000 
-While scapoalt > 1313
-Propagate LEOprop(LEOsat) {LEOsat.Apoapsis} 
-scapoalt = LEOsat.Earth.Altitude 
-EndWhile 
+
+
+Propagate LEOprop(LEOsat) {LEOsat.Earth.Altitude = 250}
+
+
 
 
 Report rf LEOsat.UTCGregorian LEOsat.UTCModJulian LEOsat.X ...

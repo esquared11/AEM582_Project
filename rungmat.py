@@ -68,11 +68,11 @@ def stateinit(tle):
 starttime = datetime.now()
 
 # read in tle
-tle = read_tle_from_file("tles\\tle3.txt")
+tle = read_tle_from_file("tles\\isstle.txt")
 state, e, r_p, r_a = stateinit(tle)
 if e < 0.001:
     desiredrmag = int(np.linalg.norm(state[0]))
-    altthresh = int(desiredrmag - 6395)
+    altthresh = int(desiredrmag - 6405)
 else:
     desiredrmag = int(r_a)
     altthresh = int(r_a - 6410)
@@ -92,18 +92,18 @@ data[71] = "desiredRMAG = " + str(desiredrmag) + "\n"
 data[72] = "desiredECC = " + str(e) + "\n"
 
 if e < 0.001:
+    data[87] = "Propagate 'Prop One Step' LEOprop(LEOsat) \n"
     data[88] = "\n"
-    data[89] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
-    data[99] = "\n"
+    data[90] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
     data[113] = "\n"
     data[114] = "\n"
     data[115] = "Propagate LEOprop(LEOsat) {LEOsat.Earth.Altitude = 250}\n"
     data[116] = "\n"
     data[117] = "\n"
 else:
+    data[87] = "Propagate 'Prop To Apoapsis' LEOprop(LEOsat) {LEOsat.Apoapsis} \n"
     data[88] = "\n"
-    data[89] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
-    data[99] = "EndIf \n"
+    data[90] = "If 'If Alt < Threshold' LEOsat.Earth.Altitude < " + str(altthresh) + "\n"
     data[113] = "scapoalt = 50000000 \n"
     data[114] = "While scapoalt > " + str(deorbitthresh) + "\n"
     data[115] = "Propagate LEOprop(LEOsat) {LEOsat.Apoapsis} \n"
